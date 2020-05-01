@@ -12,10 +12,6 @@ enum location {
 
 class fish : public animal {
 public:
-    animal *next; // Последующий элемент
-    animal *prev; // Предыдущий  элемент
-    enum_animal TYPE; // Тип животного
-    std::string name; // Имя животного
     location living_place; // Локация
 
     void Read(std::ifstream& ifs);
