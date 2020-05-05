@@ -5,11 +5,13 @@ void cont::Read(std::ifstream &ifs) {
     while(!ifs.eof()) { // Пока есть что считывать
         animal *A = animal::ReadA(ifs); // Функция возвращает считанные данные
         if(A==NULL) return;
-        Add(A); // Сохраняем в контейнер
+        node *N = new node;
+        N->data = A;
+        Add(N); // Сохраняем в контейнер
     }
 }
 
-void cont::Add(animal *A) {
+void cont::Add(node *A) {
     size++;
     if(first == nullptr) { // Если контейнер пуст
         first = A;
@@ -30,20 +32,37 @@ cont::cont() {
 }
 
 cont::~cont() {
-    animal *A = first;
+    node *A = first;
     for(int i = 0; i < size; i++) {
-        animal *deleting = A;
+        node *deleting = A;
         A = A->next;
+        delete deleting->data;
         delete deleting;
     }
     size = 0;
 }
 
 void cont::Out(std::ofstream &ofs) {
-    animal *A = first;
+    node *A = first;
     for(int i = 1; i <= size; i++) {
         ofs << i << ". ";
-        A->OutA(ofs);
+        A->data->OutA(ofs);
+        A = A->next;
+    }
+}
+
+void cont::Sort() {
+    node *A = first;
+    for(int i = 0; i < size-1; i++) {
+        node *B = A->next;
+        for(int j = 0; j < size-1-i; j++) {
+            if(animal::Comparator(A->data, B->data)) {
+                animal*data = A->data;
+                A->data = B->data;
+                B->data = data;
+            }
+            B = B->next;
+        }
         A = A->next;
     }
 }

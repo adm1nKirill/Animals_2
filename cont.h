@@ -6,18 +6,26 @@
 #include <fstream>
 #include "animal.h"
 
+class node {
+public:
+    animal*data;
+    node*next;
+    node*prev;
+};
+
 class cont {
 public:
-    animal* first; // Указатель на первый элемент
+    node* first; // Указатель на первый элемент
     int size; // Размер контейнера
 
     // Деструктор
     ~cont();
     // Конструктор
     cont();
-    void Add(animal*A);
+    void Add(node*A);
     void Read(std::ifstream& ifs);
     void Out(std::ofstream& ofs);
+    void Sort();
 
 };
 #endif //CONT_H
