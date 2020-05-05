@@ -2,12 +2,13 @@
 #include "animal.h"
 #include "fish.h"
 #include "bird.h"
+#include "common_animal.h"
 
 
 animal *animal::ReadA(std::ifstream &ifs) {
     int type;
     ifs >> type;
-    if(type < 0 || type > 1) {
+    if(type < 0 || type > 2) {
         return NULL;
     }
     animal* Read = NULL;
@@ -19,6 +20,9 @@ animal *animal::ReadA(std::ifstream &ifs) {
             break;
         case enum_animal::BIRD:
             Read = (animal*)new bird;
+            break;
+        case enum_animal::COMMON_ANIMAL:
+            Read = (animal*)new common_animal;
             break;
     }
     // Считываем имя
@@ -40,6 +44,9 @@ void animal::OutA(std::ofstream &ofs) {
             break;
         case enum_animal::BIRD:
             ofs << "BIRD\n";
+            break;
+        case enum_animal::COMMON_ANIMAL:
+            ofs << "COMMON ANIMAL\n";
             break;
     }
     Out(ofs);
