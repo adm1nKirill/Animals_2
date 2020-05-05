@@ -22,6 +22,7 @@ public:
     static animal* ReadA(std::ifstream&ifs);
     void OutA(std::ofstream& ofs);
 
+    int nameLength();
     virtual void Read(std::ifstream& ifs) = 0;
     virtual void Out(std::ofstream& ofs) = 0;
 };
