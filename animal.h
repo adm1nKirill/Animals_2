@@ -20,6 +20,7 @@ public:
     animal *prev; // Предыдущий  элемент
     enum_animal TYPE; // Тип животного
     std::string name; // Имя животного
+    int age; // Возраст
     static animal* ReadA(std::ifstream&ifs);
     void OutA(std::ofstream& ofs);
 
