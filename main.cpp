@@ -15,6 +15,8 @@ int main(int argc, char* argv[]) {
     ofstream ofst(argv[2]);
     // Вывод
     Zoo.Out(ofst);
+    Zoo.Specific_Out(ofst, enum_animal::FISH);
+    Zoo.Specific_Out(ofst, enum_animal::BIRD);
     // Очистка контейнера
     return 0;
 }

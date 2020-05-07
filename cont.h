@@ -18,6 +18,7 @@ public:
     void Add(animal*A);
     void Read(std::ifstream& ifs);
     void Out(std::ofstream& ofs);
+    void Specific_Out(std::ofstream& ofs, enum_animal type);
 
 };
 #endif //CONT_H
