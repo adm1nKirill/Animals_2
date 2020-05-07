@@ -17,6 +17,9 @@ int main(int argc, char* argv[]) {
     Zoo.Out(ofst);
     Zoo.Specific_Out(ofst, enum_animal::FISH);
     Zoo.Specific_Out(ofst, enum_animal::BIRD);
+    Zoo.Sort();
+    ofst << "Sorted\n";
+    Zoo.Out(ofst);
     // Очистка контейнера
     return 0;
 }

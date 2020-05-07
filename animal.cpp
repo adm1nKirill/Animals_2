@@ -43,6 +43,7 @@ animal *animal::ReadA(std::ifstream &ifs) {
 void animal::OutA(std::ofstream &ofs) {
     ofs << "NAME: " << name << std::endl;
     ofs << "AGE: " << age << std::endl;
+    ofs << "NAME LENGTH: " << nameLength() << std::endl;
     ofs << "ANIMAL: ";
     switch(TYPE) {
         case enum_animal::FISH:
@@ -56,4 +57,12 @@ void animal::OutA(std::ofstream &ofs) {
             break;
     }
     Out(ofs);
+}
+
+int animal::nameLength() {
+    return name.length();
+}
+
+bool animal::Comparator(animal *f, animal *s) {
+    return f->nameLength() < s->nameLength();
 }
