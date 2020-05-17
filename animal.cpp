@@ -29,6 +29,7 @@ animal *animal::ReadA(std::ifstream &ifs) {
     if(!ifs.eof())
         ifs >> _age;
     else return NULL;
+    if(_age < 0) return false;
     if(ifs.fail()) return false;
     // Считываем имя
     if(!ifs.eof())
