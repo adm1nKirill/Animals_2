@@ -17,9 +17,9 @@ show_help()
 The `gtest-config' script provides access to the necessary compile and linking
 flags to connect with Google C++ Testing Framework, both in a build prior to
 installation, and on the system proper after installation. The installation
-overrides may be issued in combination with any other queries, but will only
+overrides may be issued in combination with any OTHER queries, but will only
 affect installation queries if called on a built but not installed gtest. The
-installation queries may not be issued with any other types of queries, and
+installation queries may not be issued with any OTHER types of queries, and
 only one installation query may be made at a time. The version queries and
 compiler flag queries may be combined as desired but not mixed. Different
 version queries are always combined with logical "and" semantics, and only the

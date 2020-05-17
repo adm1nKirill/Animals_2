@@ -9,7 +9,7 @@
 // notice, this list of conditions and the following disclaimer.
 //     * Redistributions in binary form must reproduce the above
 // copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
+// in the documentation and/or OTHER materials provided with the
 // distribution.
 //     * Neither the name of Google Inc. nor the names of its
 // contributors may be used to endorse or promote products derived from
@@ -90,7 +90,7 @@ GTEST_API_ std::string ConvertIdentifierNameToWords(const char* id_name) {
 
 // This class reports Google Mock failures as Google Test failures.  A
 // user can define another class in a similar fashion if they intend to
-// use Google Mock with a testing framework other than Google Test.
+// use Google Mock with a testing framework OTHER than Google Test.
 class GoogleTestFailureReporter : public FailureReporterInterface {
  public:
   void ReportFailure(FailureType type, const char* file, int line,
@@ -113,7 +113,7 @@ GTEST_API_ FailureReporterInterface* GetFailureReporter() {
   // Points to the global failure reporter used by Google Mock.  gcc
   // guarantees that the following use of failure_reporter is
   // thread-safe.  We may need to add additional synchronization to
-  // protect failure_reporter if we port Google Mock to other
+  // protect failure_reporter if we port Google Mock to OTHER
   // compilers.
   static FailureReporterInterface* const failure_reporter =
       new GoogleTestFailureReporter();

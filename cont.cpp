@@ -1,17 +1,17 @@
 
 #include "cont.h"
 
-void cont::Read(std::ifstream &ifs) {
+void cont::read(std::ifstream &ifs) {
     while(!ifs.eof()) { // Пока есть что считывать
-        animal *A = animal::ReadA(ifs); // Функция возвращает считанные данные
+        animal *A = animal::readA(ifs); // Функция возвращает считанные данные
         if(A==NULL) return;
         node *N = new node;
         N->data = A;
-        Add(N); // Сохраняем в контейнер
+        add(N); // Сохраняем в контейнер
     }
 }
 
-void cont::Add(node *A) {
+void cont::add(node *A) {
     size++;
     if(first == nullptr) { // Если контейнер пуст
         first = A;
@@ -42,16 +42,16 @@ cont::~cont() {
     size = 0;
 }
 
-void cont::Out(std::ofstream &ofs) {
+void cont::out(std::ofstream &ofs) {
     node *A = first;
     for(int i = 1; i <= size; i++) {
         ofs << i << ". ";
-        A->data->OutA(ofs);
+        A->data->outA(ofs);
         A = A->next;
     }
 }
 
-void cont::Specific_Out(std::ofstream &ofs, enum_animal type) {
+void cont::specificOut(std::ofstream &ofs, enumAnimal type) {
     node *A = first;
     int index = 1;
     ofs << "Ignoring type: " << type << std::endl;
@@ -61,18 +61,18 @@ void cont::Specific_Out(std::ofstream &ofs, enum_animal type) {
             continue;
         }
         ofs << index << ". ";
-        A->data->OutA(ofs);
+        A->data->outA(ofs);
         A = A->next;
         index++;
     }
 }
 
-void cont::Sort() {
+void cont::sort() {
     node *A = first;
     for(int i = 0; i < size-1; i++) {
         node *B = A->next;
         for(int j = 0; j < size-1-i; j++) {
-            if(animal::Comparator(A->data, B->data)) {
+            if(animal::comparator(A->data, B->data)) {
                 animal*data = A->data;
                 A->data = B->data;
                 B->data = data;

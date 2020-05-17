@@ -9,7 +9,7 @@
 // notice, this list of conditions and the following disclaimer.
 //     * Redistributions in binary form must reproduce the above
 // copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
+// in the documentation and/or OTHER materials provided with the
 // distribution.
 //     * Neither the name of Google Inc. nor the names of its
 // contributors may be used to endorse or promote products derived from
@@ -319,7 +319,7 @@ static void DeathTestAbort(const std::string& message) {
 // should be tried again.  The macro expands to a loop that repeatedly
 // evaluates the expression as long as it evaluates to -1 and sets
 // errno to EINTR.  If the expression evaluates to -1 but errno is
-// something other than EINTR, DeathTestAbort is called.
+// something OTHER than EINTR, DeathTestAbort is called.
 # define GTEST_DEATH_TEST_CHECK_SYSCALL_(expression) \
   do { \
     int gtest_retval; \
@@ -341,7 +341,7 @@ std::string GetLastErrnoDescription() {
 
 // This is called from a death test parent process to read a failure
 // message from the death test child process and log it with the FATAL
-// severity. On Windows, the message is read from a pipe handle. On other
+// severity. On Windows, the message is read from a pipe handle. On OTHER
 // platforms, it is read from a file descriptor.
 static void FailFromInternalError(int fd) {
   Message error;
@@ -492,7 +492,7 @@ void DeathTestImpl::ReadAndInterpretStatusByte() {
                           << static_cast<unsigned int>(flag) << ")";
     }
   } else {
-    GTEST_LOG_(FATAL) << "Read from death test child process failed: "
+    GTEST_LOG_(FATAL) << "read from death test child process failed: "
                       << GetLastErrnoDescription();
   }
   GTEST_DEATH_TEST_CHECK_SYSCALL_(posix::Close(read_fd()));
@@ -913,7 +913,7 @@ int FuchsiaDeathTest::Wait() {
 
     if (packet.key == kExceptionKey) {
       // Process encountered an exception. Kill it directly rather than
-      // letting other handlers process the event. We will get a kProcessKey
+      // letting OTHER handlers process the event. We will get a kProcessKey
       // event when the process actually terminates.
       status_zx = child_process_.kill();
       GTEST_DEATH_TEST_CHECK_(status_zx == ZX_OK);
@@ -925,7 +925,7 @@ int FuchsiaDeathTest::Wait() {
     } else if (packet.key == kSocketKey) {
       GTEST_DEATH_TEST_CHECK_(ZX_PKT_IS_SIGNAL_ONE(packet.type));
       if (packet.signal.observed & ZX_SOCKET_READABLE) {
-        // Read data from the socket.
+        // read data from the socket.
         constexpr size_t kBufferSize = 1024;
         do {
           size_t old_length = captured_stderr_.length();

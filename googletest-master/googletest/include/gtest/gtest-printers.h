@@ -9,7 +9,7 @@
 // notice, this list of conditions and the following disclaimer.
 //     * Redistributions in binary form must reproduce the above
 // copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
+// in the documentation and/or OTHER materials provided with the
 // distribution.
 //     * Neither the name of Google Inc. nor the names of its
 // contributors may be used to endorse or promote products derived from
@@ -316,13 +316,13 @@ void PrintWithFallback(const T& value, ::std::ostream* os) {
 
 // FormatForComparison<ToPrint, OtherOperand>::Format(value) formats a
 // value of type ToPrint that is an operand of a comparison assertion
-// (e.g. ASSERT_EQ).  OtherOperand is the type of the other operand in
+// (e.g. ASSERT_EQ).  OtherOperand is the type of the OTHER operand in
 // the comparison, and is used to help determine the best way to
 // format the value.  In particular, when the value is a C string
-// (char pointer) and the other operand is an STL string object, we
+// (char pointer) and the OTHER operand is an STL string object, we
 // want to format the C string as a string, since we know it is
 // compared by value with the string object.  If the value is a char
-// pointer but the other operand is not an STL string object, we don't
+// pointer but the OTHER operand is not an STL string object, we don't
 // know whether the pointer is supposed to point to a NUL-terminated
 // string, and thus want to print it as a pointer to be safe.
 //
@@ -389,7 +389,7 @@ GTEST_IMPL_FORMAT_C_STRING_AS_STRING_(const wchar_t, ::std::wstring);
 
 // Formats a comparison assertion (e.g. ASSERT_EQ, EXPECT_LT, and etc)
 // operand to be used in a failure message.  The type (but not value)
-// of the other operand may affect the format.  This allows us to
+// of the OTHER operand may affect the format.  This allows us to
 // print a char* as a raw pointer when it is compared against another
 // char* or void*, and print it as a C string when it is compared
 // against an std::string object, for example.
@@ -441,7 +441,7 @@ inline void PrintTo(char c, ::std::ostream* os) {
   PrintTo(static_cast<unsigned char>(c), os);
 }
 
-// Overloads for other simple built-in types.
+// Overloads for OTHER simple built-in types.
 inline void PrintTo(bool x, ::std::ostream* os) {
   *os << (x ? "true" : "false");
 }

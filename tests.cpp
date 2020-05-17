@@ -2,7 +2,7 @@
 #include "cont.h"
 #include "fish.h"
 #include "bird.h"
-#include "common_animal.h"
+#include "commonAnimal.h"
 
 int main() {
     testing::InitGoogleTest();
@@ -35,18 +35,18 @@ TEST(LAB1_test, test_fileName) {
     cont Zoo{};
     // Создаем элемент
     node *A = new node;
-    A->data = reinterpret_cast<animal *>(new common_animal);
-    A->data->TYPE = enum_animal::COMMON_ANIMAL;
+    A->data = reinterpret_cast<animal *>(new commonAnimal);
+    A->data->TYPE = enumAnimal::COMMON_ANIMAL;
     A->data->name = "Test name";
     A->data->age = 3;
-    ((common_animal*)A)->food = type::insectivorous;
-    Zoo.Add(A);
+    ((commonAnimal*)A)->food = type::INSECTIVOROUS;
+    Zoo.add(A);
     // Проверяем корректность
     EXPECT_EQ(Zoo.size, 1);
     EXPECT_EQ(A->data->age, 3);
     EXPECT_EQ(A->data->name, "Test name");
-    EXPECT_EQ(A->data->TYPE, enum_animal::COMMON_ANIMAL);
-    EXPECT_EQ(((common_animal*)A)->food, type::insectivorous);
+    EXPECT_EQ(A->data->TYPE, enumAnimal::COMMON_ANIMAL);
+    EXPECT_EQ(((commonAnimal*)A)->food, type::INSECTIVOROUS);
 }
 
 // Тест чтения контейнера
@@ -54,7 +54,7 @@ TEST(LAB1_test, test_Read) {
     std::ifstream ifstr("input.txt");
     cont Zoo{};
     // Если не будет вызвано исключений, тест пройден
-    EXPECT_NO_THROW(Zoo.Read(ifstr));
+    EXPECT_NO_THROW(Zoo.read(ifstr));
 
 }
 
@@ -64,6 +64,6 @@ TEST(LAB1_test, test_Write) {
     std::ofstream ofstr("output.txt");
     cont Zoo{};
     // Если не будет вызвано исключений, тест пройден
-    Zoo.Read(ifstr);
-    EXPECT_NO_THROW(Zoo.Out(ofstr));
+    Zoo.read(ifstr);
+    EXPECT_NO_THROW(Zoo.out(ofstr));
 }

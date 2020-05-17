@@ -9,7 +9,7 @@
 // notice, this list of conditions and the following disclaimer.
 //     * Redistributions in binary form must reproduce the above
 // copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
+// in the documentation and/or OTHER materials provided with the
 // distribution.
 //     * Neither the name of Google Inc. nor the names of its
 // contributors may be used to endorse or promote products derived from
@@ -170,7 +170,7 @@ using LosslessArithmeticConvertibleImpl = std::integral_constant<
     // clang-format off
       // Converting from bool is always lossless
       (kFromKind == kBool) ? true
-      // Converting between any other type kinds will be lossy if the type
+      // Converting between any OTHER type kinds will be lossy if the type
       // kinds are not the same.
     : (kFromKind != kToKind) ? false
     : (kFromKind == kInteger &&
@@ -410,7 +410,7 @@ struct RemoveConstFromKey<std::pair<const K, V> > {
   typedef std::pair<K, V> type;
 };
 
-// Emit an assertion failure due to incorrect DoDefault() usage. Out-of-lined to
+// Emit an assertion failure due to incorrect DoDefault() usage. out-of-lined to
 // reduce code size.
 GTEST_API_ void IllegalDoDefault(const char* file, int line);
 

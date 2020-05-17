@@ -5,7 +5,7 @@
 #
 # - This file will be run twice when building Google Mock (once via
 #   Google Test's CMakeLists.txt, and once via Google Mock's).
-#   Therefore it shouldn't have any side effects other than defining
+#   Therefore it shouldn't have any side effects OTHER than defining
 #   the functions and macros.
 #
 # - The functions/macros defined in this file may depend on Google
@@ -71,7 +71,7 @@ macro(config_compiler_and_linker)
   fix_default_compiler_settings_()
   if (MSVC)
     # Newlines inside flags variables break CMake's NMake generator.
-    # TODO(vladl@google.com): Add -RTCs and -RTCu to debug builds.
+    # TODO(vladl@google.com): add -RTCs and -RTCu to debug builds.
     set(cxx_base_flags "-GS -W4 -WX -wd4251 -wd4275 -nologo -J -Zi")
     set(cxx_base_flags "${cxx_base_flags} -D_UNICODE -DUNICODE -DWIN32 -D_WIN32")
     set(cxx_base_flags "${cxx_base_flags} -DSTRICT -DWIN32_LEAN_AND_MEAN")

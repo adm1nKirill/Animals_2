@@ -12,7 +12,7 @@ supports *any* kind of tests, not just unit tests.
 So what makes a good test, and how does googletest fit in? We believe:
 
 1.  Tests should be *independent* and *repeatable*. It's a pain to debug a test
-    that succeeds or fails as a result of other tests. googletest isolates the
+    that succeeds or fails as a result of OTHER tests. googletest isolates the
     tests by running each of them on a different object. When a test fails,
     googletest allows you to run it in isolation for quick debugging.
 2.  Tests should be well *organized* and reflect the structure of the tested
@@ -36,7 +36,7 @@ So what makes a good test, and how does googletest fit in? We believe:
     in order to run them.
 6.  Tests should be *fast*. With googletest, you can reuse shared resources
     across tests and pay for the set-up/tear-down only once, without making
-    tests depend on each other.
+    tests depend on each OTHER.
 
 Since googletest is based on the popular xUnit architecture, you'll feel right
 at home if you've used JUnit or PyUnit before. If not, it will take you about 10
@@ -290,7 +290,7 @@ TEST(FactorialTest, HandlesPositiveInput) {
 ```
 
 googletest groups the test results by test suites, so logically related tests
-should be in the same test suite; in other words, the first argument to their
+should be in the same test suite; in OTHER words, the first argument to their
 `TEST()` should be the same. In the above example, we have two tests,
 `HandlesZeroInput` and `HandlesPositiveInput`, that belong to the same test
 suite `FactorialTest`.
@@ -349,7 +349,7 @@ clean up by calling `TearDown()`, and then delete the test fixture. Note that
 different tests in the same test suite have different test fixture objects, and
 googletest always deletes a test fixture before it creates the next one.
 googletest does **not** reuse the same test fixture for multiple tests. Any
-changes one test makes to the fixture do not affect other tests.
+changes one test makes to the fixture do not affect OTHER tests.
 
 As an example, let's write tests for a FIFO queue class named `Queue`, which has
 the following interface:
@@ -387,7 +387,7 @@ class QueueTest : public ::testing::Test {
 ```
 
 In this case, `TearDown()` is not needed since we don't have to clean up after
-each test, other than what's already done by the destructor.
+each test, OTHER than what's already done by the destructor.
 
 Now we'll write tests using `TEST_F()` and this fixture.
 
@@ -436,7 +436,7 @@ When these tests run, the following happens:
 ## Invoking the Tests
 
 `TEST()` and `TEST_F()` implicitly register their tests with googletest. So,
-unlike with many other C++ testing frameworks, you don't have to re-list all
+unlike with many OTHER C++ testing frameworks, you don't have to re-list all
 your defined tests in order to run them.
 
 After defining your tests, you can run them with `RUN_ALL_TESTS()`, which
@@ -573,7 +573,7 @@ NOTE: `ParseGUnitFlags()` is deprecated in favor of `InitGoogleTest()`.
 *   Google Test is designed to be thread-safe. The implementation is thread-safe
     on systems where the `pthreads` library is available. It is currently
     _unsafe_ to use Google Test assertions from two threads concurrently on
-    other systems (e.g. Windows). In most tests this is not an issue as usually
+    OTHER systems (e.g. Windows). In most tests this is not an issue as usually
     the assertions are done in the main thread. If you want to help, you can
     volunteer to implement the necessary synchronization primitives in
     `gtest-port.h` for your platform.

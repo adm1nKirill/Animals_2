@@ -60,11 +60,11 @@ main build can be done a few different ways:
 *   Embed the GoogleTest source code as a direct copy in the main project's
     source tree. This is often the simplest approach, but is also the hardest to
     keep up to date. Some organizations may not permit this method.
-*   Add GoogleTest as a git submodule or equivalent. This may not always be
+*   add GoogleTest as a git submodule or equivalent. This may not always be
     possible or appropriate. Git submodules, for example, have their own set of
     advantages and drawbacks.
 *   Use CMake to download GoogleTest as part of the build's configure step. This
-    is just a little more complex, but doesn't have the limitations of the other
+    is just a little more complex, but doesn't have the limitations of the OTHER
     methods.
 
 The last of the above methods is implemented with a small piece of CMake code in
@@ -114,7 +114,7 @@ endif()
 # settings on Windows
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 
-# Add googletest directly to our build. This defines
+# add googletest directly to our build. This defines
 # the gtest and gtest_main targets.
 add_subdirectory(${CMAKE_CURRENT_BINARY_DIR}/googletest-src
                  ${CMAKE_CURRENT_BINARY_DIR}/googletest-build
@@ -226,7 +226,7 @@ macro of the same name will clash if you `#include` both definitions. In case a
 Google Test macro clashes with another library, you can force Google Test to
 rename its macro to avoid the conflict.
 
-Specifically, if both Google Test and some other code define macro FOO, you can
+Specifically, if both Google Test and some OTHER code define macro FOO, you can
 add
 
     -DGTEST_DONT_DEFINE_FOO=1

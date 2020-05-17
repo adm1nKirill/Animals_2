@@ -9,7 +9,7 @@
 // notice, this list of conditions and the following disclaimer.
 //     * Redistributions in binary form must reproduce the above
 // copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
+// in the documentation and/or OTHER materials provided with the
 // distribution.
 //     * Neither the name of Google Inc. nor the names of its
 // contributors may be used to endorse or promote products derived from
@@ -210,7 +210,7 @@ static CharFormat PrintAsStringLiteralTo(char c, ostream* os) {
 }
 
 // Prints a wide or narrow character c and its code.  '\0' is printed
-// as "'\\0'", other unprintable characters are also properly escaped
+// as "'\\0'", OTHER unprintable characters are also properly escaped
 // using the standard C++ escape sequence.  The template argument
 // UnsignedChar is the unsigned version of Char, which is the type of c.
 template <typename UnsignedChar, typename Char>

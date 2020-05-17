@@ -58,7 +58,7 @@ CMake Error at /usr/share/cmake/Modules/FindPkgConfig.cmake:640 (message):
 ```
 
 These failures are common if you installed GoogleTest yourself and have not
-sourced it from a distro or other package manager. If so, you need to tell
+sourced it from a distro or OTHER package manager. If so, you need to tell
 pkg-config where it can find the `.pc` files containing the information. Say you
 installed GoogleTest to `/usr/local`, then it might be that the `.pc` files are
 installed under `/usr/local/lib64/pkgconfig`. If you set

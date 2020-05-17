@@ -9,7 +9,7 @@
 // notice, this list of conditions and the following disclaimer.
 //     * Redistributions in binary form must reproduce the above
 // copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
+// in the documentation and/or OTHER materials provided with the
 // distribution.
 //     * Neither the name of Google Inc. nor the names of its
 // contributors may be used to endorse or promote products derived from
@@ -135,7 +135,7 @@ INSTANTIATE_TEST_SUITE_P(AnotherInstantiationName, FooTest, ValuesIn(pets));
 // Please also note that generator expressions (including parameters to the
 // generators) are evaluated in InitGoogleTest(), after main() has started.
 // This allows the user on one hand, to adjust generator parameters in order
-// to dynamically determine a set of tests to run and on the other hand,
+// to dynamically determine a set of tests to run and on the OTHER hand,
 // give the user a chance to inspect the generated tests with Google Test
 // reflection API before RUN_ALL_TESTS() is executed.
 //

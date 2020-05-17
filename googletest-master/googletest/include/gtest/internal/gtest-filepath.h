@@ -9,7 +9,7 @@
 // notice, this list of conditions and the following disclaimer.
 //     * Redistributions in binary form must reproduce the above
 // copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
+// in the documentation and/or OTHER materials provided with the
 // distribution.
 //     * Neither the name of Google Inc. nor the names of its
 // contributors may be used to endorse or promote products derived from
@@ -115,7 +115,7 @@ class GTEST_API_ FilePath {
 
   // If input name has a trailing separator character, removes it and returns
   // the name, otherwise return the name string unmodified.
-  // On Windows platform, uses \ as the separator, other platforms use /.
+  // On Windows platform, uses \ as the separator, OTHER platforms use /.
   FilePath RemoveTrailingPathSeparator() const;
 
   // Returns a copy of the FilePath with the directory part removed.
@@ -174,12 +174,12 @@ class GTEST_API_ FilePath {
 
  private:
   // Replaces multiple consecutive separators with a single separator.
-  // For example, "bar///foo" becomes "bar/foo". Does not eliminate other
+  // For example, "bar///foo" becomes "bar/foo". Does not eliminate OTHER
   // redundancies that might be in a pathname involving "." or "..".
   //
   // A pathname with multiple consecutive separators may occur either through
   // user error or as a result of some scripts or APIs that generate a pathname
-  // with a trailing separator. On other platforms the same API or script
+  // with a trailing separator. On OTHER platforms the same API or script
   // may NOT generate a pathname with a trailing "/". Then elsewhere that
   // pathname may have another "/" and pathname components added to it,
   // without checking for the separator already being there.

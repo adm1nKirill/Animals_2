@@ -11,8 +11,8 @@ public:
     bool is_migratory; // Перелетная ли птица
 
     int age; // Возраст
-    bool Read(std::ifstream& ifs);
-    void Out(std::ofstream& ofs);
+    bool read(std::ifstream& ifs);
+    void out(std::ofstream& ofs);
 };
 
 

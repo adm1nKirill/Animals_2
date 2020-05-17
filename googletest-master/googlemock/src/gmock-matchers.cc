@@ -9,7 +9,7 @@
 // notice, this list of conditions and the following disclaimer.
 //     * Redistributions in binary form must reproduce the above
 // copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
+// in the documentation and/or OTHER materials provided with the
 // distribution.
 //     * Neither the name of Google Inc. nor the names of its
 // contributors may be used to endorse or promote products derived from
@@ -85,7 +85,7 @@ GTEST_API_ std::string FormatMatcherDescription(bool negation,
 //     representing unused flow capacity.
 //
 // When the method augments a flow (moving left_[l] from some r1 to some
-// other r2), this can be thought of as "undoing" the above steps with
+// OTHER r2), this can be thought of as "undoing" the above steps with
 // respect to r1 and "redoing" them with respect to r2.
 //
 // It bears repeating that the flow graph and residual flow graph are
@@ -174,7 +174,7 @@ class MaxBipartiteMatchState {
   // graph.
   //
   // Note that left_[ilhs] is the only element of left_ that TryAugment will
-  // potentially transition from kUnused to another value. Any other
+  // potentially transition from kUnused to another value. Any OTHER
   // left_ element holding kUnused before TryAugment will be holding it
   // when TryAugment returns.
   //
@@ -195,7 +195,7 @@ class MaxBipartiteMatchState {
       // along that path and call ourselves recursively to see if this
       // ultimately leads to sink.
       if (right_[irhs] == kUnused || TryAugment(right_[irhs], seen)) {
-        // Add flow from left_[ilhs] to right_[irhs].
+        // add flow from left_[ilhs] to right_[irhs].
         left_[ilhs] = irhs;
         right_[irhs] = ilhs;
         return true;

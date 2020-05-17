@@ -115,7 +115,7 @@ rough guidelines:
     and pass it as the third parameter to INSTANTIATE_TEST_SUITE_P to have more
     useful output.
 *   When using typed tests, you need to make sure you are testing against the
-    interface type, not the concrete types (in other words, you want to make
+    interface type, not the concrete types (in OTHER words, you want to make
     sure `implicit_cast<MyInterface*>(my_concrete_impl)` works, not just that
     `my_concrete_impl` works). It's less likely to make mistakes in this area
     when using value-parameterized tests.
@@ -176,7 +176,7 @@ template argument, and thus doesn't compile in opt mode when `a` contains a call
 to `htonl()`. It is difficult to make `EXPECT_EQ` bypass the `htonl()` bug, as
 the solution must work with different compilers on various platforms.
 
-`htonl()` has some other problems as described in `//util/endian/endian.h`,
+`htonl()` has some OTHER problems as described in `//util/endian/endian.h`,
 which defines `ghtonl()` to replace it. `ghtonl()` does the same thing `htonl()`
 does, only without its problems. We suggest you to use `ghtonl()` instead of
 `htonl()`, both in your tests and production code.
@@ -523,7 +523,7 @@ There are several good reasons:
     This makes it difficult to keep side effects from escaping one test and
     contaminating others, making debugging difficult. By using fixtures, each
     test has a fresh set of variables that's different (but with the same
-    names). Thus, tests are kept independent of each other.
+    names). Thus, tests are kept independent of each OTHER.
 2.  Global variables pollute the global namespace.
 3.  Test fixtures can be reused via subclassing, which cannot be done easily
     with global variables. This is useful if many test suites have something in

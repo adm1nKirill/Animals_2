@@ -70,7 +70,7 @@ following problems is bothering you:
     network).
 *   You want to test how your code handles a failure (e.g. a file checksum
     error), but it's not easy to cause one.
-*   You need to make sure that your module interacts with other modules in the
+*   You need to make sure that your module interacts with OTHER modules in the
     right way, but it's hard to observe the interaction; therefore you resort to
     observing the side effects at the end of the action, but it's awkward at
     best.
@@ -437,7 +437,7 @@ gMock.
 
 First, if the return type of a mock function is a built-in type or a pointer,
 the function has a **default action** (a `void` function will just return, a
-`bool` function will return `false`, and other functions will return 0). In
+`bool` function will return `false`, and OTHER functions will return 0). In
 addition, in C++ 11 and above, a mock function whose return type is
 default-constructible (i.e. has a default constructor) has a default action of
 returning a default-constructed value. If you don't say anything, this behavior
@@ -552,21 +552,21 @@ expectations? The reason is that this allows a user to set up the default
 expectations in a mock object's constructor or the test fixture's set-up phase
 and then customize the mock by writing more specific expectations in the test
 body. So, if you have two expectations on the same method, you want to put the
-one with more specific matchers **after** the other, or the more specific rule
+one with more specific matchers **after** the OTHER, or the more specific rule
 would be shadowed by the more general one that comes after it.
 
 **Tip:** It is very common to start with a catch-all expectation for a method
 and `Times(AnyNumber())` (omitting arguments, or with `_` for all arguments, if
 overloaded). This makes any calls to the method expected. This is not necessary
 for methods that are not mentioned at all (these are "uninteresting"), but is
-useful for methods that have some expectations, but for which other calls are
+useful for methods that have some expectations, but for which OTHER calls are
 ok. See
 [Understanding Uninteresting vs Unexpected Calls](cook_book.md#uninteresting-vs-unexpected).
 
 #### Ordered vs Unordered Calls {#OrderedCalls}
 
 By default, an expectation can match a call even though an earlier expectation
-hasn't been satisfied. In other words, the calls don't have to occur in the
+hasn't been satisfied. In OTHER words, the calls don't have to occur in the
 order the expectations are specified.
 
 Sometimes, you may want all the expected calls to occur in a strict order. To
@@ -604,7 +604,7 @@ details can be found [here](cook_book.md#OrderedCalls).)
 
 Now let's do a quick quiz to see how well you can use this mock stuff already.
 How would you test that the turtle is asked to go to the origin *exactly twice*
-(you want to ignore any other instructions it receives)?
+(you want to ignore any OTHER instructions it receives)?
 
 After you've come up with your answer, take a look at ours and compare notes
 (solve it yourself first - don't cheat!):
@@ -628,7 +628,7 @@ told you in the [Using Multiple Expectations](#MultiExpectations) section above.
 This example shows that **expectations in gMock are "sticky" by default**, in
 the sense that they remain active even after we have reached their invocation
 upper bounds. This is an important rule to remember, as it affects the meaning
-of the spec, and is **different** to how it's done in many other mocking
+of the spec, and is **different** to how it's done in many OTHER mocking
 frameworks (Why'd we do that? Because we think our rule makes the common cases
 easier to express and understand.).
 
@@ -651,7 +651,7 @@ the last (latest) `EXPECT_CALL()` statement will match, and will immediately
 lead to an "upper bound violated" error - this piece of code is not very useful!
 
 One correct way of saying that `turtle.GetX()` will return 10, 20, 30, ..., is
-to explicitly say that the expectations are *not* sticky. In other words, they
+to explicitly say that the expectations are *not* sticky. In OTHER words, they
 should *retire* as soon as they are saturated:
 
 ```cpp
@@ -683,7 +683,7 @@ using ::testing::Return;
 }
 ```
 
-By the way, the other situation where an expectation may *not* be sticky is when
+By the way, the OTHER situation where an expectation may *not* be sticky is when
 it's in a sequence - as soon as another expectation that comes after it in the
 sequence has been used, it automatically retires (and will never be used to
 match any call).

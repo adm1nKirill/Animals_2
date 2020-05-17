@@ -16,14 +16,14 @@ int main(int argc, char* argv[]) {
     // Контейнер с животными
     cont Zoo{};
     // Считывание
-    Zoo.Read(ifst);
+    Zoo.read(ifst);
     // Вывод
-    Zoo.Out(ofst);
-    Zoo.Specific_Out(ofst, enum_animal::FISH);
-    Zoo.Specific_Out(ofst, enum_animal::BIRD);
-    Zoo.Sort();
+    Zoo.out(ofst);
+    Zoo.specificOut(ofst, enumAnimal::FISH);
+    Zoo.specificOut(ofst, enumAnimal::BIRD);
+    Zoo.sort();
     ofst << "Sorted\n";
-    Zoo.Out(ofst);
+    Zoo.out(ofst);
     // Очистка контейнера
     return 0;
 }

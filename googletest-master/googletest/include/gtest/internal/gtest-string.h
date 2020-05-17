@@ -9,7 +9,7 @@
 // notice, this list of conditions and the following disclaimer.
 //     * Redistributions in binary form must reproduce the above
 // copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
+// in the documentation and/or OTHER materials provided with the
 // distribution.
 //     * Neither the name of Google Inc. nor the names of its
 // contributors may be used to endorse or promote products derived from
@@ -34,7 +34,7 @@
 // by code external to Google Test.
 //
 // This header file is #included by gtest-internal.h.
-// It should not be #included by other files.
+// It should not be #included by OTHER files.
 
 // GOOGLETEST_CM0001 DO NOT DELETE
 

@@ -9,7 +9,7 @@
 // notice, this list of conditions and the following disclaimer.
 //     * Redistributions in binary form must reproduce the above
 // copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
+// in the documentation and/or OTHER materials provided with the
 // distribution.
 //     * Neither the name of Google Inc. nor the names of its
 // contributors may be used to endorse or promote products derived from
@@ -159,7 +159,7 @@ class MatcherInterface : public MatcherDescriberInterface {
   //
   // For example, a "has at least 10 elements" matcher should explain
   // what the actual element count is, regardless of the match result,
-  // as it is useful information to the reader; on the other hand, an
+  // as it is useful information to the reader; on the OTHER hand, an
   // "is empty" matcher probably only needs to explain what the actual
   // size is when the match fails, as it's redundant to say that the
   // size is 0 when the value is already known to be empty.
@@ -706,7 +706,7 @@ Matcher<T>::Matcher(T value) { *this = Eq(value); }
 // TypedEq<T>(x) is just a convenient short-hand for Matcher<T>(Eq(x))
 // or Matcher<T>(x), but more readable than the latter.
 //
-// We could define similar monomorphic matchers for other comparison
+// We could define similar monomorphic matchers for OTHER comparison
 // operations (e.g. TypedLt, TypedGe, and etc), but decided not to do
 // it yet as those are used much less than Eq() in practice.  A user
 // can always write Matcher<T>(Lt(5)) to be explicit about the type,

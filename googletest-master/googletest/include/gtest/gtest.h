@@ -9,7 +9,7 @@
 // notice, this list of conditions and the following disclaimer.
 //     * Redistributions in binary form must reproduce the above
 // copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
+// in the documentation and/or OTHER materials provided with the
 // distribution.
 //     * Neither the name of Google Inc. nor the names of its
 // contributors may be used to endorse or promote products derived from
@@ -354,7 +354,7 @@ class GTEST_API_ AssertionResult {
     message_->append(a_message.GetString().c_str());
   }
 
-  // Swap the contents of this AssertionResult with other.
+  // Swap the contents of this AssertionResult with OTHER.
   void swap(AssertionResult& other);
 
   // Stores result of the assertion predicate.
@@ -758,7 +758,7 @@ class GTEST_API_ TestInfo {
   // Returns true if and only if this test will appear in the XML report.
   bool is_reportable() const {
     // The XML report includes tests matching the filter, excluding those
-    // run in other shards.
+    // run in OTHER shards.
     return matches_filter_ && !is_in_another_shard_;
   }
 
@@ -1559,7 +1559,7 @@ class EqHelper {
   template <
       typename T1, typename T2,
       // Disable this overload for cases where one argument is a pointer
-      // and the other is the null pointer constant.
+      // and the OTHER is the null pointer constant.
       typename std::enable_if<!std::is_integral<T1>::value ||
                               !std::is_pointer<T2>::value>::type* = nullptr>
   static AssertionResult Compare(const char* lhs_expression,
@@ -1934,7 +1934,7 @@ class TestWithParam : public Test, public WithParamInterface<T> {
                     ::testing::TestPartResult::kFatalFailure)
 
 // Define this macro to 1 to omit the definition of FAIL(), which is a
-// generic name and clashes with some other libraries.
+// generic name and clashes with some OTHER libraries.
 #if !GTEST_DONT_DEFINE_FAIL
 # define FAIL() GTEST_FAIL()
 #endif
@@ -1943,7 +1943,7 @@ class TestWithParam : public Test, public WithParamInterface<T> {
 #define GTEST_SUCCEED() GTEST_SUCCESS_("Succeeded")
 
 // Define this macro to 1 to omit the definition of SUCCEED(), which
-// is a generic name and clashes with some other libraries.
+// is a generic name and clashes with some OTHER libraries.
 #if !GTEST_DONT_DEFINE_SUCCEED
 # define SUCCEED() GTEST_SUCCEED()
 #endif
@@ -2018,7 +2018,7 @@ class TestWithParam : public Test, public WithParamInterface<T> {
 //   3. {ASSERT|EXPECT}_EQ(v1, v2) is preferred to
 //   {ASSERT|EXPECT}_TRUE(v1 == v2), as the former tells you
 //   what the actual value is when it fails, and similarly for the
-//   other comparisons.
+//   OTHER comparisons.
 //
 //   4. Do not depend on the order in which {ASSERT|EXPECT}_??()
 //   evaluate their arguments, which is undefined.
@@ -2126,7 +2126,7 @@ class TestWithParam : public Test, public WithParamInterface<T> {
 //    * {ASSERT|EXPECT}_DOUBLE_EQ(val1, val2):
 //         Tests that two double values are almost equal.
 //    * {ASSERT|EXPECT}_NEAR(v1, v2, abs_error):
-//         Tests that v1 and v2 are within the given distance to each other.
+//         Tests that v1 and v2 are within the given distance to each OTHER.
 //
 // Google Test uses ULP-based comparison to automatically pick a default
 // error bound that is appropriate for the operands.  See the
@@ -2340,7 +2340,7 @@ constexpr bool StaticAssertTypeEq() noexcept {
               ::testing::internal::GetTestTypeId())
 
 // Define this macro to 1 to omit the definition of TEST(), which
-// is a generic name and clashes with some other libraries.
+// is a generic name and clashes with some OTHER libraries.
 #if !GTEST_DONT_DEFINE_TEST
 #define TEST(test_suite_name, test_name) GTEST_TEST(test_suite_name, test_name)
 #endif

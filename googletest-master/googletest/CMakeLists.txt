@@ -8,7 +8,7 @@
 # ctest.  You can select which tests to run using 'ctest -R regex'.
 # For more options, run 'ctest --help'.
 
-# When other libraries are using a shared version of runtime libraries,
+# When OTHER libraries are using a shared version of runtime libraries,
 # Google Test also has to use one.
 option(
   gtest_force_shared_crt
@@ -123,7 +123,7 @@ include_directories(${gtest_build_include_dirs})
 # with one of them.
 
 # Google Test libraries.  We build them using more strict warnings than what
-# are used for other targets, to ensure that gtest can be compiled by a user
+# are used for OTHER targets, to ensure that gtest can be compiled by a user
 # aggressive about warnings.
 cxx_library(gtest "${cxx_strict}" src/gtest-all.cc)
 cxx_library(gtest_main "${cxx_strict}" src/gtest_main.cc)

@@ -9,7 +9,7 @@
 // notice, this list of conditions and the following disclaimer.
 //     * Redistributions in binary form must reproduce the above
 // copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
+// in the documentation and/or OTHER materials provided with the
 // distribution.
 //     * Neither the name of Google Inc. nor the names of its
 // contributors may be used to endorse or promote products derived from
@@ -534,7 +534,7 @@ bool UntypedFunctionMockerBase::VerifyAndClearExpectationsLocked()
     }
   }
 
-  // Deleting our expectations may trigger other mock objects to be deleted, for
+  // Deleting our expectations may trigger OTHER mock objects to be deleted, for
   // example if an action contains a reference counted smart pointer to that
   // mock object, and that is the last reference. So if we delete our
   // expectations within the context of the global mutex we may deadlock when

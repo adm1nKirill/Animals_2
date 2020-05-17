@@ -7,7 +7,7 @@
 #include "string"
 
 // Перечисляемый тип - тип животного
-enum enum_animal {
+enum enumAnimal {
     FISH,
     BIRD,
     COMMON_ANIMAL
@@ -16,15 +16,15 @@ enum enum_animal {
 // Животные
 class animal {
 public:
-    enum_animal TYPE; // Тип животного
+    enumAnimal TYPE; // Тип животного
     std::string name; // Имя животного
     int age; // Возраст
-    static animal* ReadA(std::ifstream&ifs);
-    void OutA(std::ofstream& ofs);
-    static bool Comparator(animal*f, animal*s);
+    static animal* readA(std::ifstream&ifs);
+    void outA(std::ofstream& ofs);
+    static bool comparator(animal*f, animal*s);
     int nameLength();
-    virtual bool Read(std::ifstream& ifs) = 0;
-    virtual void Out(std::ofstream& ofs) = 0;
+    virtual bool read(std::ifstream& ifs) = 0;
+    virtual void out(std::ofstream& ofs) = 0;
 };
 
 

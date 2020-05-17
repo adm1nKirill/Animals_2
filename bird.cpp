@@ -1,7 +1,7 @@
 
 #include "bird.h"
 
-bool bird::Read(std::ifstream &ifs) {
+bool bird::read(std::ifstream &ifs) {
     std::string _s;
     if(!ifs.eof()) return false;
     ifs >> _s;
@@ -10,6 +10,6 @@ bool bird::Read(std::ifstream &ifs) {
     return true;
 }
 
-void bird::Out(std::ofstream &stream) {
+void bird::out(std::ofstream &stream) {
     stream << "Is migratory: " << (is_migratory ? "true" : "false") << std::endl;
 }

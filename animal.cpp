@@ -2,10 +2,10 @@
 #include "animal.h"
 #include "fish.h"
 #include "bird.h"
-#include "common_animal.h"
+#include "commonAnimal.h"
 
 
-animal *animal::ReadA(std::ifstream &ifs) {
+animal *animal::readA(std::ifstream &ifs) {
     int type, _age;
     ifs >> type;
     if(type < 0 || type > 2) {
@@ -15,14 +15,14 @@ animal *animal::ReadA(std::ifstream &ifs) {
     std::string _name;
     Read = NULL;
     switch (type) {
-        case enum_animal::FISH:
+        case enumAnimal::FISH:
             Read = (animal*)new fish;
             break;
-        case enum_animal::BIRD:
+        case enumAnimal::BIRD:
             Read = (animal*)new bird;
             break;
-        case enum_animal::COMMON_ANIMAL:
-            Read = (animal*)new common_animal;
+        case enumAnimal::COMMON_ANIMAL:
+            Read = (animal*)new commonAnimal;
             break;
     }
     // Считываем возраст
@@ -37,34 +37,34 @@ animal *animal::ReadA(std::ifstream &ifs) {
     else return NULL;
     Read->age = _age;
     Read->name = _name;
-    Read->Read(ifs);
-    Read->TYPE = (enum_animal)type;
+    Read->read(ifs);
+    Read->TYPE = (enumAnimal)type;
     return Read;
 }
 
-void animal::OutA(std::ofstream &ofs) {
+void animal::outA(std::ofstream &ofs) {
     ofs << "NAME: " << name << std::endl;
     ofs << "AGE: " << age << std::endl;
     ofs << "NAME LENGTH: " << nameLength() << std::endl;
     ofs << "ANIMAL: ";
     switch(TYPE) {
-        case enum_animal::FISH:
+        case enumAnimal::FISH:
             ofs << "FISH\n";
             break;
-        case enum_animal::BIRD:
+        case enumAnimal::BIRD:
             ofs << "BIRD\n";
             break;
-        case enum_animal::COMMON_ANIMAL:
+        case enumAnimal::COMMON_ANIMAL:
             ofs << "COMMON ANIMAL\n";
             break;
     }
-    Out(ofs);
+    out(ofs);
 }
 
 int animal::nameLength() {
     return name.length();
 }
 
-bool animal::Comparator(animal *f, animal *s) {
+bool animal::comparator(animal *f, animal *s) {
     return f->nameLength() < s->nameLength();
 }

@@ -48,7 +48,7 @@ switch(expression) {
   case 1:
      ... some checks ...
   case 2:
-     ... some other checks ...
+     ... some OTHER checks ...
   default:
      FAIL() << "We shouldn't get here.";
 }
@@ -340,7 +340,7 @@ want to learn more, see
 
 <!-- mdformat on-->
 
-By "almost equal" we mean the values are within 4 ULP's from each other.
+By "almost equal" we mean the values are within 4 ULP's from each OTHER.
 
 The following assertions allow you to choose the acceptable error bound:
 
@@ -391,7 +391,7 @@ using ::testing::StartsWith;
     EXPECT_THAT(Foo(), StartsWith("Hello"));
 ```
 
-Read this
+read this
 [recipe](../../googlemock/docs/cook_book.md#using-matchers-in-googletest-assertions)
 in the gMock Cookbook for more details.
 
@@ -536,7 +536,7 @@ When a test assertion such as `EXPECT_EQ` fails, googletest prints the argument
 values to help you debug. It does this using a user-extensible value printer.
 
 This printer knows how to print built-in C++ types, native arrays, STL
-containers, and any type that supports the `<<` operator. For other types, it
+containers, and any type that supports the `<<` operator. For OTHER types, it
 prints the raw bytes in the value and hopes that you the user can figure it out.
 
 As mentioned earlier, the printer is *extensible*. That means you can teach it
@@ -723,7 +723,7 @@ verifies that:
     exit with exit code 0, and
 *   calling `KillMyself()` kills the process with signal `SIGKILL`.
 
-The test function body may contain other assertions and statements as well, if
+The test function body may contain OTHER assertions and statements as well, if
 necessary.
 
 ### Death Test Naming
@@ -835,7 +835,7 @@ googletest has three features intended to raise awareness of threading issues.
 
 1.  A warning is emitted if multiple threads are running when a death test is
     encountered.
-2.  Test suites with a name ending in "DeathTest" are run before all other
+2.  Test suites with a name ending in "DeathTest" are run before all OTHER
     tests.
 3.  It uses `clone()` instead of `fork()` to spawn the child process on Linux
     (`clone()` is not available on Cygwin and Mac), as `fork()` is more likely
@@ -1035,7 +1035,7 @@ int main(int argc, char** argv) {
 }
 ```
 
-This listener should be added after other listeners if you have any, otherwise
+This listener should be added after OTHER listeners if you have any, otherwise
 they won't see failed `OnTestPartResult`.
 
 #### Asserting on Subroutines
@@ -1381,7 +1381,7 @@ of its suites will ever run!
 There is work in progress to make omitting `INSTANTIATE_TEST_SUITE_P` show up
 under the `GoogleTestVerification` test suite and to then make that an error.
 If you have a test suite where that omission is not an error, for example it is
-in a library that may be linked in for other reason or where the list of test
+in a library that may be linked in for OTHER reason or where the list of test
 cases is dynamic and may be empty, then this check can be suppressed by tagging
 the test suite:
 
@@ -1433,7 +1433,7 @@ You can see [sample7_unittest.cc] and [sample8_unittest.cc] for more examples.
 
 In the above, we define and instantiate `FooTest` in the *same* source file.
 Sometimes you may want to define value-parameterized tests in a library and let
-other people instantiate them later. This pattern is known as *abstract tests*.
+OTHER people instantiate them later. This pattern is known as *abstract tests*.
 As an example of its application, when you are designing an interface you can
 write a standard suite of abstract tests (perhaps using a factory function as
 the test parameter) that all implementations of the interface are expected to
@@ -1794,7 +1794,7 @@ if you are expecting a non-fatal (e.g. `EXPECT_*`) failure.
 
 Only failures in the current thread are checked to determine the result of this
 type of expectations. If `statement` creates new threads, failures in these
-threads are also ignored. If you want to catch failures in other threads as
+threads are also ignored. If you want to catch failures in OTHER threads as
 well, use one of the following macros instead:
 
 ```c++
@@ -2068,7 +2068,7 @@ latter takes precedence.
 
 Sometimes it is necessary to list the available tests in a program before
 running them so that a filter may be applied if needed. Including the flag
-`--gtest_list_tests` overrides all other flags and lists tests in the following
+`--gtest_list_tests` overrides all OTHER flags and lists tests in the following
 format:
 
 ```none
@@ -2161,7 +2161,7 @@ quality.
 
 To include disabled tests in test execution, just invoke the test program with
 the `--gtest_also_run_disabled_tests` flag or set the
-`GTEST_ALSO_RUN_DISABLED_TESTS` environment variable to a value other than `0`.
+`GTEST_ALSO_RUN_DISABLED_TESTS` environment variable to a value OTHER than `0`.
 You can combine this with the `--gtest_filter` flag to further select which
 disabled tests to run.
 
@@ -2581,7 +2581,7 @@ debugger can catch an assertion failure and automatically drop into interactive
 mode. googletest's *break-on-failure* mode supports this behavior.
 
 To enable it, set the `GTEST_BREAK_ON_FAILURE` environment variable to a value
-other than `0`. Alternatively, you can use the `--gtest_break_on_failure`
+OTHER than `0`. Alternatively, you can use the `--gtest_break_on_failure`
 command line flag.
 
 #### Disabling Catching Test-Thrown Exceptions

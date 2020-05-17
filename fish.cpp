@@ -1,7 +1,7 @@
 
 #include "fish.h"
 
-bool fish::Read(std::ifstream &ifs) {
+bool fish::read(std::ifstream &ifs) {
     int int_location;
     if(!ifs.eof()) return false;
     ifs >> int_location;
@@ -10,19 +10,19 @@ bool fish::Read(std::ifstream &ifs) {
     return true;
 }
 
-void fish::Out(std::ofstream &ofs) {
+void fish::out(std::ofstream &ofs) {
     ofs << "Location: ";
     switch (living_place) {
-        case location::lake:
+        case location::LAKE:
             ofs << "Lake\n";
             return;
-        case location::ocean:
+        case location::OCEAN:
             ofs << "Ocean\n";
             return;
-        case location::river:
+        case location::RIVER:
             ofs << "River\n";
             return;
-        case location::sea:
+        case location::SEA:
             ofs << "Sea\n";
             return;
         default:

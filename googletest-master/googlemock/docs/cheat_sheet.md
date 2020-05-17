@@ -119,12 +119,12 @@ TEST(BarTest, DoesThis) {
 
   ON_CALL(foo, GetSize())                         // #3
       .WillByDefault(Return(1));
-  // ... other default actions ...
+  // ... OTHER default actions ...
 
   EXPECT_CALL(foo, Describe(5))                   // #4
       .Times(3)
       .WillRepeatedly(Return("Category 5"));
-  // ... other expectations ...
+  // ... OTHER expectations ...
 
   EXPECT_EQ("good", MyProductionFunction(&foo));  // #5
 }                                                 // #6
@@ -170,7 +170,7 @@ Example usage:
   EXPECT_NE(buzz1, buzz2);
 
   // Resets the default action for return type std::unique_ptr<Buzz>,
-  // to avoid interfere with other tests.
+  // to avoid interfere with OTHER tests.
   DefaultValue<std::unique_ptr<Buzz>>::Clear();
 ```
 
@@ -280,7 +280,7 @@ is not changed afterwards, or the meaning of your matcher will be changed.
 
 `IsTrue` and `IsFalse` are useful when you need to use a matcher, or for types
 that can be explicitly converted to Boolean, but are not implicitly converted to
-Boolean. In other cases, you can use the basic
+Boolean. In OTHER cases, you can use the basic
 [`EXPECT_TRUE` and `EXPECT_FALSE`](../../googletest/docs/primer#basic-assertions)
 assertions.
 
@@ -347,7 +347,7 @@ messages, you can use:
 | Matcher                                   | Description                      |
 | :---------------------------------------- | :------------------------------- |
 | `BeginEndDistanceIs(m)` | `argument` is a container whose `begin()` and `end()` iterators are separated by a number of increments matching `m`. E.g. `BeginEndDistanceIs(2)` or `BeginEndDistanceIs(Lt(2))`. For containers that define a `size()` method, `SizeIs(m)` may be more efficient. |
-| `ContainerEq(container)` | The same as `Eq(container)` except that the failure message also includes which elements are in one container but not the other. |
+| `ContainerEq(container)` | The same as `Eq(container)` except that the failure message also includes which elements are in one container but not the OTHER. |
 | `Contains(e)` | `argument` contains an element that matches `e`, which can be either a value or a matcher. |
 | `Each(e)` | `argument` is a container where *every* element matches `e`, which can be either a value or a matcher. |
 | `ElementsAre(e0, e1, ..., en)` | `argument` has `n + 1` elements, where the *i*-th element matches `ei`, which can be a value or a matcher. |
@@ -446,7 +446,7 @@ reorder them) to participate in the matching:
 
 #### Composite Matchers
 
-You can make a matcher from one or more other matchers:
+You can make a matcher from one or more OTHER matchers:
 
 <!-- mdformat off(no multiline tables) -->
 | Matcher                          | Description                             |
@@ -497,7 +497,7 @@ which must be a permanent callback.
 
 1.  The `MATCHER*` macros cannot be used inside a function or class.
 2.  The matcher body must be *purely functional* (i.e. it cannot have any side
-    effect, and the result must not depend on anything other than the value
+    effect, and the result must not depend on anything OTHER than the value
     being matched and the matcher parameters).
 3.  You can use `PrintToString(x)` to convert a value `x` of any type to a
     string.

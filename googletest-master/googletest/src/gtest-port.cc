@@ -9,7 +9,7 @@
 // notice, this list of conditions and the following disclaimer.
 //     * Redistributions in binary form must reproduce the above
 // copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
+// in the documentation and/or OTHER materials provided with the
 // distribution.
 //     * Neither the name of Google Inc. nor the names of its
 // contributors may be used to endorse or promote products derived from
@@ -444,7 +444,7 @@ void Mutex::ThreadSafeLazyInit() {
         while (::InterlockedCompareExchange(&critical_section_init_phase_,
                                             2L,
                                             2L) != 2L) {
-          // Possibly yields the rest of the thread's time slice to other
+          // Possibly yields the rest of the thread's time slice to OTHER
           // threads.
           ::Sleep(0);
         }
@@ -534,7 +534,7 @@ void ThreadWithParamBase::Join() {
 class ThreadLocalRegistryImpl {
  public:
   // Registers thread_local_instance as having value on the current thread.
-  // Returns a value that can be used to identify the thread from other threads.
+  // Returns a value that can be used to identify the thread from OTHER threads.
   static ThreadLocalValueHolderBase* GetValueOnCurrentThread(
       const ThreadLocalBase* thread_local_instance) {
 #ifdef _MSC_VER
@@ -711,7 +711,7 @@ RE::~RE() {
   if (is_valid_) {
     // regfree'ing an invalid regex might crash because the content
     // of the regex is undefined. Since the regex's are essentially
-    // the same, one cannot be valid (or invalid) without the other
+    // the same, one cannot be valid (or invalid) without the OTHER
     // being so too.
     regfree(&partial_regex_);
     regfree(&full_regex_);
@@ -1107,7 +1107,7 @@ class CapturedStream {
     // run in a Dalvik process (e.g. when running it through 'adb shell').
     //
     // The location /data/local/tmp is directly accessible from native code.
-    // '/sdcard' and other variants cannot be relied on, as they are not
+    // '/sdcard' and OTHER variants cannot be relied on, as they are not
     // guaranteed to be mounted, or may have a delay in mounting.
     char name_template[] = "/data/local/tmp/gtest_captured_stream.XXXXXX";
 #  else

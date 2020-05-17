@@ -9,7 +9,7 @@
 // notice, this list of conditions and the following disclaimer.
 //     * Redistributions in binary form must reproduce the above
 // copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
+// in the documentation and/or OTHER materials provided with the
 // distribution.
 //     * Neither the name of Google Inc. nor the names of its
 // contributors may be used to endorse or promote products derived from
@@ -633,7 +633,7 @@ class GTEST_API_ Sequence {
   Sequence() : last_expectation_(new Expectation) {}
 
   // Adds an expectation to this sequence.  The caller must ensure
-  // that no other thread is accessing this Sequence object.
+  // that no OTHER thread is accessing this Sequence object.
   void AddExpectation(const Expectation& expectation) const;
 
  private:
@@ -1354,7 +1354,7 @@ class ReferenceOrValueWrapper<T&> {
 // a void-typed variable or pass a void value to a function.
 // ActionResultHolder<T> holds a value of type T, where T must be a
 // copyable type or void (T doesn't need to be default-constructable).
-// It hides the syntactic difference between void and other types, and
+// It hides the syntactic difference between void and OTHER types, and
 // is used to unify the code for invoking both void-returning and
 // non-void-returning mock functions.
 
@@ -1563,7 +1563,7 @@ class FunctionMocker<R(Args...)> final : public UntypedFunctionMockerBase {
       GTEST_EXCLUSIVE_LOCK_REQUIRED_(g_gmock_mutex) {
     g_gmock_mutex.AssertHeld();
 
-    // Deleting our default actions may trigger other mock objects to be
+    // Deleting our default actions may trigger OTHER mock objects to be
     // deleted, for example if an action contains a reference counted smart
     // pointer to that mock object, and that is the last reference. So if we
     // delete our actions within the context of the global mutex we may deadlock
@@ -1834,7 +1834,7 @@ It makes use of MockFunction easier by allowing it to accept more F arguments
 than just function signatures.
 
 Specializations provided here cover only a signature type itself and
-std::function. However, if need be it can be easily extended to cover also other
+std::function. However, if need be it can be easily extended to cover also OTHER
 types (like for example boost::function).
 */
 
@@ -1902,7 +1902,7 @@ using SignatureOfT = typename SignatureOf<F>::type;
 //   Foo(callback.AsStdFunction());
 // }
 //
-// The internal::SignatureOfT<F> indirection allows to use other types
+// The internal::SignatureOfT<F> indirection allows to use OTHER types
 // than just function signature type. This is typically useful when
 // providing a mock for a predefined std::function type. Example:
 //

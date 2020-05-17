@@ -9,7 +9,7 @@
 // notice, this list of conditions and the following disclaimer.
 //     * Redistributions in binary form must reproduce the above
 // copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
+// in the documentation and/or OTHER materials provided with the
 // distribution.
 //     * Neither the name of Google Inc. nor the names of its
 // contributors may be used to endorse or promote products derived from
@@ -1664,7 +1664,7 @@ class FloatingEqMatcher {
         if (actual.is_nan() && expected.is_nan()) {
           return nan_eq_nan_;
         }
-        // One is nan; the other is not nan.
+        // One is nan; the OTHER is not nan.
         return false;
       }
       if (HasMaxAbsError()) {
@@ -2325,7 +2325,7 @@ class BeginEndDistanceIsMatcher {
 // support ==. This matcher is like Eq(), but its failure explanations provide
 // more detailed information that is useful when the container is used as a set.
 // The failure message reports elements that are in one of the operands but not
-// the other. The failure messages do not report duplicate or out-of-order
+// the OTHER. The failure messages do not report duplicate or out-of-order
 // elements in the containers (which don't properly matter to sets, but can
 // occur if the containers are vectors or lists, for example).
 //
@@ -3603,7 +3603,7 @@ class VariantMatcher {
   }
 
   void DescribeNegationTo(std::ostream* os) const {
-    *os << "is a variant<> with value of type other than '" << GetTypeName()
+    *os << "is a variant<> with value of type OTHER than '" << GetTypeName()
         << "' or the value ";
     matcher_.DescribeNegationTo(os);
   }
@@ -3664,7 +3664,7 @@ class AnyCastMatcher {
   }
 
   void DescribeNegationTo(std::ostream* os) const {
-    *os << "is an 'any' type with value of type other than '" << GetTypeName()
+    *os << "is an 'any' type with value of type OTHER than '" << GetTypeName()
         << "' or the value ";
     matcher_.DescribeNegationTo(os);
   }
@@ -4305,7 +4305,7 @@ BeginEndDistanceIs(const DistanceMatcher& distance_matcher) {
 
 // Returns a matcher that matches an equal container.
 // This matcher behaves like Eq(), but in the event of mismatch lists the
-// values that are included in one container but not the other. (Duplicate
+// values that are included in one container but not the OTHER. (Duplicate
 // values and order differences are not explained.)
 template <typename Container>
 inline PolymorphicMatcher<internal::ContainerEqMatcher<
@@ -4437,7 +4437,7 @@ inline internal::ContainsMatcher<M> Contains(M matcher) {
 // IsSupersetOf({e1, e2, ..., en})
 //
 // IsSupersetOf() verifies that a surjective partial mapping onto a collection
-// of matchers exists. In other words, a container matches
+// of matchers exists. In OTHER words, a container matches
 // IsSupersetOf({e1, ..., en}) if and only if there is a permutation
 // {y1, ..., yn} of some of the container's elements where y1 matches e1,
 // ..., and yn matches en. Obviously, the size of the container must be >= n
@@ -4498,7 +4498,7 @@ inline internal::UnorderedElementsAreArrayMatcher<T> IsSupersetOf(
 // IsSubsetOf({e1, e2, ..., en})
 //
 // IsSubsetOf() verifies that an injective mapping onto a collection of matchers
-// exists.  In other words, a container matches IsSubsetOf({e1, ..., en}) if and
+// exists.  In OTHER words, a container matches IsSubsetOf({e1, ..., en}) if and
 // only if there is a subset of matchers {m1, ..., mk} which would match the
 // container using UnorderedElementsAre.  Obviously, the size of the container
 // must be <= n in order to have a match. Examples:

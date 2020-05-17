@@ -9,7 +9,7 @@
 // notice, this list of conditions and the following disclaimer.
 //     * Redistributions in binary form must reproduce the above
 // copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
+// in the documentation and/or OTHER materials provided with the
 // distribution.
 //     * Neither the name of Google Inc. nor the names of its
 // contributors may be used to endorse or promote products derived from
@@ -34,9 +34,9 @@
 // end with _ are part of Google Test's public API and can be used by
 // code outside Google Test.
 //
-// This file is fundamental to Google Test.  All other Google Test source
+// This file is fundamental to Google Test.  All OTHER Google Test source
 // files are expected to #include this.  Therefore, it cannot #include
-// any other Google Test header.
+// any OTHER Google Test header.
 
 // GOOGLETEST_CM0001 DO NOT DELETE
 
@@ -139,7 +139,7 @@
 //
 // Among the platforms, Cygwin, Linux, Mac OS X, and Windows have the
 // most stable support.  Since core members of the Google Test project
-// don't have access to other platforms, support for them may be less
+// don't have access to OTHER platforms, support for them may be less
 // stable.  If you notice any problems on your platform, please notify
 // googletestframework@googlegroups.com (patches for fixing them are
 // even more welcome!).
@@ -211,7 +211,7 @@
 //   RE             - a simple regular expression class using the POSIX
 //                    Extended Regular Expression syntax on UNIX-like platforms
 //                    GOOGLETEST_CM0008 DO NOT DELETE
-//                    or a reduced regular exception syntax on other
+//                    or a reduced regular exception syntax on OTHER
 //                    platforms, including Windows.
 // Logging:
 //   GTEST_LOG_()   - logs messages at the specified severity level.
@@ -440,7 +440,7 @@ typedef struct _RTL_CRITICAL_SECTION GTEST_CRITICAL_SECTION;
 // be turned of by +noeh compiler option if desired.
 #  define GTEST_HAS_EXCEPTIONS 1
 # else
-// For other compilers, we assume exceptions are disabled to be
+// For OTHER compilers, we assume exceptions are disabled to be
 // conservative.
 #  define GTEST_HAS_EXCEPTIONS 0
 # endif  // defined(_MSC_VER) || defined(__BORLANDC__)
@@ -509,7 +509,7 @@ typedef struct _RTL_CRITICAL_SECTION GTEST_CRITICAL_SECTION;
 
 # else
 
-// For all other compilers, we assume RTTI is enabled.
+// For all OTHER compilers, we assume RTTI is enabled.
 #  define GTEST_HAS_RTTI 1
 
 # endif  // _MSC_VER
@@ -721,7 +721,7 @@ typedef struct _RTL_CRITICAL_SECTION GTEST_CRITICAL_SECTION;
 
 // Determine whether the compiler supports Microsoft's Structured Exception
 // Handling.  This is supported by several Windows compilers but generally
-// does not exist on any other system.
+// does not exist on any OTHER system.
 #ifndef GTEST_HAS_SEH
 // The user didn't tell us, so we need to figure it out.
 
@@ -1070,7 +1070,7 @@ inline To ImplicitCast_(To x) { return x; }
 // do RTTI (eg code like this:
 //    if (dynamic_cast<Subclass1>(foo)) HandleASubclass1Object(foo);
 //    if (dynamic_cast<Subclass2>(foo)) HandleASubclass2Object(foo);
-// You should design the code some other way not to need this.
+// You should design the code some OTHER way not to need this.
 //
 // This relatively ugly name is intentional. It prevents clashes with
 // similar functions users may have (e.g., down_cast). The internal
@@ -1465,7 +1465,7 @@ class ThreadLocalBase {
 class GTEST_API_ ThreadLocalRegistry {
  public:
   // Registers thread_local_instance as having value on the current thread.
-  // Returns a value that can be used to identify the thread from other threads.
+  // Returns a value that can be used to identify the thread from OTHER threads.
   static ThreadLocalValueHolderBase* GetValueOnCurrentThread(
       const ThreadLocalBase* thread_local_instance);
 
@@ -1755,7 +1755,7 @@ class GTEST_API_ ThreadLocal {
     DeleteThreadLocalValue(pthread_getspecific(key_));
 
     // Releases resources associated with the key.  This will *not*
-    // delete managed objects for other threads.
+    // delete managed objects for OTHER threads.
     GTEST_CHECK_POSIX_SUCCESS_(pthread_key_delete(key_));
   }
 
@@ -2039,7 +2039,7 @@ inline int IsATTY(int fd) {
 
 GTEST_DISABLE_MSC_DEPRECATED_PUSH_()
 
-// ChDir(), FReopen(), FDOpen(), Read(), Write(), Close(), and
+// ChDir(), FReopen(), FDOpen(), read(), Write(), Close(), and
 // StrError() aren't needed on Windows CE at this time and thus not
 // defined there.
 
@@ -2224,7 +2224,7 @@ const char* StringFromGTestEnv(const char* flag, const char* default_val);
 // a deprecated entity will trigger a warning when compiled with
 // `-Wdeprecated-declarations` option (clang, gcc, any __GNUC__ compiler).
 // For msvc /W3 option will need to be used
-// Note that for 'other' compilers this macro evaluates to nothing to prevent
+// Note that for 'OTHER' compilers this macro evaluates to nothing to prevent
 // compilations errors.
 #if defined(_MSC_VER)
 #define GTEST_INTERNAL_DEPRECATED(message) __declspec(deprecated(message))

@@ -9,7 +9,7 @@
 // notice, this list of conditions and the following disclaimer.
 //     * Redistributions in binary form must reproduce the above
 // copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
+// in the documentation and/or OTHER materials provided with the
 // distribution.
 //     * Neither the name of Google Inc. nor the names of its
 // contributors may be used to endorse or promote products derived from
@@ -67,16 +67,16 @@
 //
 // For example:
 //
-//   ACTION_P(Add, n) { return arg0 + n; }
+//   ACTION_P(add, n) { return arg0 + n; }
 //
 // will allow you to write:
 //
-//   ...WillOnce(Add(5));
+//   ...WillOnce(add(5));
 //
 // Note that you don't need to provide the type of the parameter
 // either.  If you need to reference the type of a parameter named
 // 'foo', you can write 'foo_type'.  For example, in the body of
-// ACTION_P(Add, n) above, you can write 'n_type' to refer to the type
+// ACTION_P(add, n) above, you can write 'n_type' to refer to the type
 // of 'n'.
 //
 // We also provide ACTION_P2, ACTION_P3, ..., up to ACTION_P10 to support
@@ -188,7 +188,7 @@ struct BuiltInDefaultValueGetter<T, false> {
 // a numeric type, false when T is bool, or "" when T is string or
 // std::string.  In addition, in C++11 and above, it turns a
 // default-constructed T value if T is default constructible.  For any
-// other type T, the built-in default T value is undefined, and the
+// OTHER type T, the built-in default T value is undefined, and the
 // function will abort the process.
 template <typename T>
 class BuiltInDefaultValue {
@@ -1146,7 +1146,7 @@ WithArgs(InnerAction&& action) {
 
 // WithoutArgs(inner_action) can be used in a mock function with a
 // non-empty argument list to perform inner_action, which takes no
-// argument.  In other words, it adapts an action accepting no
+// argument.  In OTHER words, it adapts an action accepting no
 // argument to one that accepts (and ignores) arguments.
 template <typename InnerAction>
 internal::WithArgsAction<typename std::decay<InnerAction>::type>
@@ -1287,7 +1287,7 @@ internal::InvokeMethodWithoutArgsAction<Class, MethodPtr> InvokeWithoutArgs(
 }
 
 // Creates an action that performs an_action and throws away its
-// result.  In other words, it changes the return type of an_action to
+// result.  In OTHER words, it changes the return type of an_action to
 // void.  an_action MUST NOT return void, or the code won't compile.
 template <typename A>
 inline internal::IgnoreResultAction<A> IgnoreResult(const A& an_action) {
@@ -1392,7 +1392,7 @@ struct AdlTag {};
 
 // InvokeArgumentAdl - a helper for InvokeArgument.
 // The basic overloads are provided here for generic functors.
-// Overloads for other custom-callables are provided in the
+// Overloads for OTHER custom-callables are provided in the
 // internal/custom/gmock-generated-actions.h header.
 template <typename F, typename... Args>
 auto InvokeArgumentAdl(AdlTag, F f, Args... args) -> decltype(f(args...)) {

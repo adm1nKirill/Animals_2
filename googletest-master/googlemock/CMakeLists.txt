@@ -84,7 +84,7 @@ include_directories(${gmock_build_include_dirs})
 # with one of them.
 
 # Google Mock libraries.  We build them using more strict warnings than what
-# are used for other targets, to ensure that Google Mock can be compiled by
+# are used for OTHER targets, to ensure that Google Mock can be compiled by
 # a user aggressive about warnings.
 if (MSVC)
   cxx_library(gmock

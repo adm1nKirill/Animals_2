@@ -120,8 +120,8 @@ class Foo {
   virtual ~Foo();
 
   // Overloaded on the types and/or numbers of arguments.
-  virtual int Add(Element x);
-  virtual int Add(int times, Element x);
+  virtual int add(Element x);
+  virtual int add(int times, Element x);
 
   // Overloaded on the const-ness of this object.
   virtual Bar& GetBar();
@@ -130,8 +130,8 @@ class Foo {
 
 class MockFoo : public Foo {
   ...
-  MOCK_METHOD(int, Add, (Element x), (override));
-  MOCK_METHOD(int, Add, (int times, Element x), (override));
+  MOCK_METHOD(int, add, (Element x), (override));
+  MOCK_METHOD(int, add, (int times, Element x), (override));
 
   MOCK_METHOD(Bar&, GetBar, (), (override));
   MOCK_METHOD(const Bar&, GetBar, (), (const, override));
@@ -145,9 +145,9 @@ fix that, use `using` to bring them in scope:
 ```cpp
 class MockFoo : public Foo {
   ...
-  using Foo::Add;
-  MOCK_METHOD(int, Add, (Element x), (override));
-  // We don't want to mock int Add(int times, Element x);
+  using Foo::add;
+  MOCK_METHOD(int, add, (Element x), (override));
+  // We don't want to mock int add(int times, Element x);
   ...
 };
 ```
@@ -195,7 +195,7 @@ class ConcretePacketStream {
   ...
 };
 
-// A mock packet stream class.  It inherits from no other, but defines
+// A mock packet stream class.  It inherits from no OTHER, but defines
 // GetPacket() and NumberOfPackets().
 class MockPacketStream {
  public:
@@ -359,7 +359,7 @@ TEST(...) {
 }
 ```
 
-If a method of `mock_foo` other than `DoThis()` is called, you will get a
+If a method of `mock_foo` OTHER than `DoThis()` is called, you will get a
 warning. However, if you rewrite your test to use `NiceMock<MockFoo>` instead,
 you can suppress the warning:
 
@@ -400,7 +400,7 @@ TEST(...) {
   EXPECT_CALL(mock_foo, DoThis());
   ... code that uses mock_foo ...
 
-  // The test will fail if a method of mock_foo other than DoThis()
+  // The test will fail if a method of mock_foo OTHER than DoThis()
   // is called.
 }
 ```
@@ -426,7 +426,7 @@ sadly they are side effects of C++'s limitations):
     nice or strict. This may cause surprises if the constructor or destructor
     calls a mock method on `this` object. (This behavior, however, is consistent
     with C++'s general rule: if a constructor or destructor calls a virtual
-    method of `this` object, that method is treated as non-virtual. In other
+    method of `this` object, that method is treated as non-virtual. In OTHER
     words, to the base class's constructor or destructor, `this` object behaves
     like an instance of the base class, not the derived class. This rule is
     required for safety. Otherwise a base constructor may use members of a
@@ -557,7 +557,7 @@ testability:
     productive.
 *   If `Concrete`'s implementation ever has to change, you don't have to rewrite
     everywhere it is used. Instead, you can absorb the change in your
-    implementation of the interface, and your other code and tests will be
+    implementation of the interface, and your OTHER code and tests will be
     insulated from this change.
 
 Some people worry that if everyone is practicing this technique, they will end
@@ -891,7 +891,7 @@ casts a matcher `m` to type `Matcher<T>`. To ensure safety, gMock checks that
 1.  Type `T` can be *implicitly* cast to type `U`;
 2.  When both `T` and `U` are built-in arithmetic types (`bool`, integers, and
     floating-point numbers), the conversion from `T` to `U` is not lossy (in
-    other words, any value representable by `T` can also be represented by `U`);
+    OTHER words, any value representable by `T` can also be represented by `U`);
     and
 3.  When `U` is a reference, `T` must also be a reference (as the underlying
     matcher may be interested in the address of the `U` value).
@@ -1264,7 +1264,7 @@ Matcher<Foo> IsFoo(const Foo& foo) {
 ### Validating the Value Pointed to by a Pointer Argument
 
 C++ functions often take pointers as arguments. You can use matchers like
-`IsNull()`, `NotNull()`, and other comparison matchers to match a pointer, but
+`IsNull()`, `NotNull()`, and OTHER comparison matchers to match a pointer, but
 what if you want to make sure the value *pointed to* by the pointer, instead of
 the pointer itself, has a certain property? Well, you can use the `Pointee(m)`
 matcher.
@@ -1420,7 +1420,7 @@ using ::testing::ElementsAreArray;
   EXPECT_CALL(mock, Foo(ElementsAreArray(expected_vector3, count)));
 ```
 
-Use `Pair` when comparing maps or other associative containers.
+Use `Pair` when comparing maps or OTHER associative containers.
 
 ```cpp
 using testing::ElementsAre;
@@ -1470,7 +1470,7 @@ using ::testing::Matcher;
 
 WARNING: gMock does not guarantee when or how many times a matcher will be
 invoked. Therefore, all matchers must be *purely functional*: they cannot have
-any side effects, and the match result must not depend on anything other than
+any side effects, and the match result must not depend on anything OTHER than
 the matcher's parameters and the value being matched.
 
 This requirement must be satisfied no matter how a matcher is defined (e.g., if
@@ -1578,7 +1578,7 @@ will be an error.
 *Very* different.
 
 A call `x.Y(...)` is **uninteresting** if there's *not even a single*
-`EXPECT_CALL(x, Y(...))` set. In other words, the test isn't interested in the
+`EXPECT_CALL(x, Y(...))` set. In OTHER words, the test isn't interested in the
 `x.Y()` method at all, as evident in that the test doesn't care to say anything
 about it.
 
@@ -1626,12 +1626,12 @@ The sole `EXPECT_CALL` here says that all calls to `GetDomainOwner()` must have
 will be an unexpected call, and thus an error. *Having a nice mock doesn't
 change the severity of an unexpected call.*
 
-So how do we tell gMock that `GetDomainOwner()` can be called with some other
+So how do we tell gMock that `GetDomainOwner()` can be called with some OTHER
 arguments as well? The standard technique is to add a "catch all" `EXPECT_CALL`:
 
 ```cpp
   EXPECT_CALL(mock_registry, GetDomainOwner(_))
-        .Times(AnyNumber());  // catches all other calls to this method.
+        .Times(AnyNumber());  // catches all OTHER calls to this method.
   EXPECT_CALL(mock_registry, GetDomainOwner("google.com"))
         .WillRepeatedly(Return("Larry Page"));
 ```
@@ -1760,7 +1760,7 @@ specifies the following DAG (where `s1` is `A -> B`, and `s2` is `A -> C -> D`):
 ```
 
 This means that A must occur before B and C, and C must occur before D. There's
-no restriction about the order other than these.
+no restriction about the order OTHER than these.
 
 ### Controlling When an Expectation Retires
 
@@ -2162,7 +2162,7 @@ using ::testing::Return;
 ```
 
 As you may have guessed, when there are more than one `ON_CALL()` statements,
-the newer ones in the order take precedence over the older ones. In other words,
+the newer ones in the order take precedence over the older ones. In OTHER words,
 the **last** one that matches the function arguments will be used. This matching
 order allows you to set up the common behavior in a mock object's constructor or
 the test fixture's set-up phase and specialize the mock's behavior later.
@@ -2325,7 +2325,7 @@ bool Job2(int n, char c) { ... }
 
 ### Invoking an Argument of the Mock Function
 
-Sometimes a mock function will receive a function pointer, a functor (in other
+Sometimes a mock function will receive a function pointer, a functor (in OTHER
 words, a "callable") as an argument, e.g.
 
 ```cpp
@@ -2968,7 +2968,7 @@ TEST(MyServerTest, ProcessesRequest) {
 
   MockFoo* const foo = new MockFoo;
   EXPECT_CALL(*foo, ...)...;
-  // ... other expectations ...
+  // ... OTHER expectations ...
 
   // server now owns foo.
   MyServer server(foo);
@@ -3071,7 +3071,7 @@ destructor, like this:
 ```cpp
 class MockFoo : public Foo {
   ...
-  // Add the following two lines to the mock class.
+  // add the following two lines to the mock class.
   MOCK_METHOD(void, Die, ());
   virtual ~MockFoo() { Die(); }
 };
@@ -3122,7 +3122,7 @@ happily together:
 *   Execute your *test code* (as opposed to the code being tested) in *one*
     thread. This makes your test easy to follow.
 *   Obviously, you can do step #1 without locking.
-*   When doing step #2 and #5, make sure no other thread is accessing `foo`.
+*   When doing step #2 and #5, make sure no OTHER thread is accessing `foo`.
     Obvious too, huh?
 *   #3 and #4 can be done either in one thread or in multiple threads - anyway
     you want. gMock takes care of the locking, so you don't have to do any -
@@ -3165,7 +3165,7 @@ the stack trace. Hopefully this will remind you to take a look and see if there
 is indeed a problem.
 
 Sometimes you are confident that your tests are correct and may not appreciate
-such friendly messages. Some other times, you are debugging your tests or
+such friendly messages. Some OTHER times, you are debugging your tests or
 learning about the behavior of the code you are testing, and wish you could
 observe every mock call that happens (including argument values, the return
 value, and the stack trace). Clearly, one size doesn't fit all.
@@ -3707,7 +3707,7 @@ PolymorphicMatcher<NotNullMatcher> NotNull() {
 ```
 
 **Note:** Your polymorphic matcher class does **not** need to inherit from
-`MatcherInterface` or any other class, and its methods do **not** need to be
+`MatcherInterface` or any OTHER class, and its methods do **not** need to be
 virtual.
 
 Like in a monomorphic matcher, you may explain the match result by streaming
@@ -3892,14 +3892,14 @@ ACTION_P(name, param) { statements; }
 For example,
 
 ```cpp
-ACTION_P(Add, n) { return arg0 + n; }
+ACTION_P(add, n) { return arg0 + n; }
 ```
 
 will allow you to write
 
 ```cpp
 // Returns argument #0 + 5.
-... WillOnce(Add(5));
+... WillOnce(add(5));
 ```
 
 For convenience, we use the term *arguments* for the values used to invoke the
@@ -3909,7 +3909,7 @@ action.
 Note that you don't need to provide the type of the parameter either. Suppose
 the parameter is named `param`, you can also use the gMock-defined symbol
 `param_type` to refer to the type of the parameter as inferred by the compiler.
-For example, in the body of `ACTION_P(Add, n)` above, you can write `n_type` for
+For example, in the body of `ACTION_P(add, n)` above, you can write `n_type` for
 the type of `n`.
 
 gMock also provides `ACTION_P2`, `ACTION_P3`, and etc to support multi-parameter
@@ -4160,7 +4160,7 @@ What matters is that it must have a `Perform()` method template. This method
 template takes the mock function's arguments as a tuple in a **single**
 argument, and returns the result of the action. It can be either `const` or not,
 but must be invokable with exactly one template argument, which is the result
-type. In other words, you must be able to call `Perform<R>(args)` where `R` is
+type. In OTHER words, you must be able to call `Perform<R>(args)` where `R` is
 the mock function's return type and `args` is its arguments in a tuple.
 
 Next, we use `MakePolymorphicAction()` to turn an instance of the implementation
@@ -4206,7 +4206,7 @@ assertion fails. gMock and googletest do this using googletest's user-extensible
 value printer.
 
 This printer knows how to print built-in C++ types, native arrays, STL
-containers, and any type that supports the `<<` operator. For other types, it
+containers, and any type that supports the `<<` operator. For OTHER types, it
 prints the raw bytes in the value and hopes that you the user can figure it out.
 [googletest's advanced guide](../../googletest/docs/advanced.md#teaching-googletest-how-to-print-your-values)
 explains how to extend the printer to do a better job at printing your

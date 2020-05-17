@@ -715,7 +715,7 @@ Stack trace: (omitted)
 
 (expecting 1 failure)
 gtest.cc:#: Failure
-Expected: 1 fatal failure containing "Some other fatal failure expected."
+Expected: 1 fatal failure containing "Some OTHER fatal failure expected."
   Actual:
 googletest-output-test_.cc:#: Fatal failure:
 Failed
@@ -752,7 +752,7 @@ Stack trace: (omitted)
 
 (expecting 1 failure)
 gtest.cc:#: Failure
-Expected: 1 non-fatal failure containing "Some other non-fatal failure."
+Expected: 1 non-fatal failure containing "Some OTHER non-fatal failure."
   Actual:
 googletest-output-test_.cc:#: Non-fatal failure:
 Failed
@@ -789,7 +789,7 @@ Stack trace: (omitted)
 
 (expecting 1 failure)
 gtest.cc:#: Failure
-Expected: 1 fatal failure containing "Some other fatal failure expected."
+Expected: 1 fatal failure containing "Some OTHER fatal failure expected."
   Actual:
 googletest-output-test_.cc:#: Fatal failure:
 Failed
@@ -826,7 +826,7 @@ Stack trace: (omitted)
 
 (expecting 1 failure)
 gtest.cc:#: Failure
-Expected: 1 non-fatal failure containing "Some other non-fatal failure."
+Expected: 1 non-fatal failure containing "Some OTHER non-fatal failure."
   Actual:
 googletest-output-test_.cc:#: Non-fatal failure:
 Failed
@@ -995,7 +995,7 @@ GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(NoTests);
 [0;32m[ RUN      ] [mGoogleTestVerification.UninstantiatedParamaterizedTestSuite<DetectNotInstantiatedTest>
 Paramaterized test suite DetectNotInstantiatedTest is defined via TEST_P, but never instantiated. None of the test cases will run. Either no INSTANTIATE_TEST_SUITE_P is provided or the only ones provided expand to nothing.
 
-Ideally, TEST_P definitions should only ever be included as part of binaries that intend to use them. (As opposed to, for example, being placed in a library that may be linked in to get other utilities.)
+Ideally, TEST_P definitions should only ever be included as part of binaries that intend to use them. (As opposed to, for example, being placed in a library that may be linked in to get OTHER utilities.)
 
 To suppress this error for this test suite, insert the following line (in a non-header) in the namespace it is defined in:
 
@@ -1004,7 +1004,7 @@ GTEST_ALLOW_UNINSTANTIATED_PARAMETERIZED_TEST(DetectNotInstantiatedTest);
 [0;32m[ RUN      ] [mGoogleTestVerification.UninstantiatedTypeParamaterizedTestSuite<DetectNotInstantiatedTypesTest>
 Type paramaterized test suite DetectNotInstantiatedTypesTest is defined via REGISTER_TYPED_TEST_SUITE_P, but never instantiated via INSTANTIATE_TYPED_TEST_SUITE_P. None of the test cases will run.
 
-Ideally, TYPED_TEST_P definitions should only ever be included as part of binaries that intend to use them. (As opposed to, for example, being placed in a library that may be linked in to get other utilities.)
+Ideally, TYPED_TEST_P definitions should only ever be included as part of binaries that intend to use them. (As opposed to, for example, being placed in a library that may be linked in to get OTHER utilities.)
 
 To suppress this error for this test suite, insert the following line (in a non-header) in the namespace it is definedin in:
 

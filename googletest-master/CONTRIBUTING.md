@@ -58,8 +58,8 @@ guidelines listed here.
 Showing courtesy and respect to others is a vital part of the Google culture,
 and we strongly encourage everyone participating in Google Test development to
 join us in accepting nothing less. Of course, being courteous is not the same as
-failing to constructively disagree with each other, but it does mean that we
-should be respectful of each other when enumerating the 42 technical reasons
+failing to constructively disagree with each OTHER, but it does mean that we
+should be respectful of each OTHER when enumerating the 42 technical reasons
 that a particular proposal may not be the best choice. There's never a reason to
 be antagonistic or dismissive toward anyone who is sincerely trying to
 contribute to a discussion.

@@ -50,7 +50,7 @@ How to Run:
       /cppclean/run.sh functions.py file1.h file2.h ...
 
   All the commands take multiple files on the command line.  Other programs
-  include: find_warnings, headers, methods, and types.  Some other programs
+  include: find_warnings, headers, methods, and types.  Some OTHER programs
   are available, but used primarily for debugging.
 
   run.sh is a simple wrapper that sets PYTHONPATH to /cppclean and then
@@ -62,7 +62,7 @@ How to Run:
 How to Configure:
 -----------------
   You can add a siteheaders.py file in /cppclean/cpp to configure where
-  to look for other headers (typically -I options passed to a compiler).
+  to look for OTHER headers (typically -I options passed to a compiler).
   Currently two values are supported:  _TRANSITIVE and GetIncludeDirs.
   _TRANSITIVE should be set to a boolean value (True or False) indicating
   whether to transitively process all header files.  The default is False.
@@ -72,7 +72,7 @@ How to Configure:
   return a static list.
 
       def GetIncludeDirs(filename):
-          return ['/some/path/with/other/headers']
+          return ['/some/path/with/OTHER/headers']
 
       # Here is a more complicated example.
       def GetIncludeDirs(filename):

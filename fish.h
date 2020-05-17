@@ -7,15 +7,15 @@
 #include "animal.h"
 
 enum location {
-    river, sea, ocean, lake, other
+    RIVER, SEA, OCEAN, LAKE, OTHER
 };
 
 class fish : public animal {
 public:
     location living_place; // Локация
     int age; // Возраст
-    bool Read(std::ifstream& ifs);
-    void Out(std::ofstream& ofs);
+    bool read(std::ifstream& ifs);
+    void out(std::ofstream& ofs);
 };
 
 #endif //FISH_H

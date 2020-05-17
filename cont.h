@@ -22,11 +22,11 @@ public:
     ~cont();
     // Конструктор
     cont();
-    void Add(node*A);
-    void Read(std::ifstream& ifs);
-    void Out(std::ofstream& ofs);
-    void Specific_Out(std::ofstream& ofs, enum_animal type);
-    void Sort();
+    void add(node*A);
+    void read(std::ifstream& ifs);
+    void out(std::ofstream& ofs);
+    void specificOut(std::ofstream& ofs, enumAnimal type);
+    void sort();
 
 };
 #endif //CONT_H

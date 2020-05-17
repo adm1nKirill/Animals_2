@@ -9,7 +9,7 @@
 // notice, this list of conditions and the following disclaimer.
 //     * Redistributions in binary form must reproduce the above
 // copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
+// in the documentation and/or OTHER materials provided with the
 // distribution.
 //     * Neither the name of Google Inc. nor the names of its
 // contributors may be used to endorse or promote products derived from
@@ -116,10 +116,10 @@ class GTEST_API_ Message {
     //
     // C++'s symbol lookup rule (i.e. Koenig lookup) says that these
     // overloads are visible in either the std namespace or the global
-    // namespace, but not other namespaces, including the testing
+    // namespace, but not OTHER namespaces, including the testing
     // namespace which Google Test's Message class is in.
     //
-    // To allow STL containers (and other types that has a << operator
+    // To allow STL containers (and OTHER types that has a << operator
     // defined in the global namespace) to be used in Google Test
     // assertions, testing::Message must access the custom << operator
     // from the global namespace.  With this using declaration,
@@ -157,7 +157,7 @@ class GTEST_API_ Message {
   // and wide streams, we have to provide this specialized definition
   // of operator <<, even though its body is the same as the
   // templatized version above.  Without this definition, streaming
-  // endl or other basic IO manipulators to Message will confuse the
+  // endl or OTHER basic IO manipulators to Message will confuse the
   // compiler.
   Message& operator <<(BasicNarrowIoManip val) {
     *ss_ << val;

@@ -9,7 +9,7 @@
 // notice, this list of conditions and the following disclaimer.
 //     * Redistributions in binary form must reproduce the above
 // copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
+// in the documentation and/or OTHER materials provided with the
 // distribution.
 //     * Neither the name of Google Inc. nor the names of its
 // contributors may be used to endorse or promote products derived from
@@ -102,7 +102,7 @@
 
 #else
 
-// Assume other platforms have gettimeofday().
+// Assume OTHER platforms have gettimeofday().
 # define GTEST_HAS_GETTIMEOFDAY_ 1
 
 // cpplint thinks that the header is already included, so we want to
@@ -463,7 +463,7 @@ std::set<std::string>* GetIgnoredParameterizedTestSuites() {
   return UnitTest::GetInstance()->impl()->ignored_parameterized_test_suites();
 }
 
-// Add a given test_suit to the list of them allow to go un-instantiated.
+// add a given test_suit to the list of them allow to go un-instantiated.
 MarkAsIgnored::MarkAsIgnored(const char* test_suite) {
   GetIgnoredParameterizedTestSuites()->insert(test_suite);
 }
@@ -482,7 +482,7 @@ void InsertSyntheticTestCase(const std::string& name, CodeLocation location,
       "\n\n"
       "Ideally, TEST_P definitions should only ever be included as part of "
       "binaries that intend to use them. (As opposed to, for example, being "
-      "placed in a library that may be linked in to get other utilities.)";
+      "placed in a library that may be linked in to get OTHER utilities.)";
 
   const char kMissingTestCase[] =  //
       " is instantiated via INSTANTIATE_TEST_SUITE_P, but no tests are "
@@ -555,7 +555,7 @@ void TypeParameterizedTestSuiteRegistry::CheckForInstantiations() {
         "\n\n"
         "Ideally, TYPED_TEST_P definitions should only ever be included as "
         "part of binaries that intend to use them. (As opposed to, for "
-        "example, being placed in a library that may be linked in to get other "
+        "example, being placed in a library that may be linked in to get OTHER "
         "utilities.)"
         "\n\n"
         "To suppress this error for this test suite, insert the following line "
@@ -1450,7 +1450,7 @@ std::string CreateUnifiedDiff(const std::vector<std::string>& left,
 namespace {
 
 // The string representation of the values received in EqFailure() are already
-// escaped. Split them on escaped '\n' boundaries. Leave all other escaped
+// escaped. Split them on escaped '\n' boundaries. Leave all OTHER escaped
 // characters the same.
 std::vector<std::string> SplitEscapedString(const std::string& str) {
   std::vector<std::string> lines;
@@ -3628,7 +3628,7 @@ void PrettyUnitTestResultPrinter::OnTestIterationEnd(const UnitTest& unit_test,
   int num_disabled = unit_test.reportable_disabled_test_count();
   if (num_disabled && !GTEST_FLAG(also_run_disabled_tests)) {
     if (unit_test.Passed()) {
-      printf("\n");  // Add a spacer if no FAILURE banner is displayed.
+      printf("\n");  // add a spacer if no FAILURE banner is displayed.
     }
     ColoredPrintf(GTestColor::kYellow, "  YOU HAVE %d DISABLED %s\n\n",
                   num_disabled, num_disabled == 1 ? "TEST" : "TESTS");
@@ -3641,7 +3641,7 @@ void PrettyUnitTestResultPrinter::OnTestIterationEnd(const UnitTest& unit_test,
 
 // class TestEventRepeater
 //
-// This class forwards events to other event listeners.
+// This class forwards events to OTHER event listeners.
 class TestEventRepeater : public TestEventListener {
  public:
   TestEventRepeater() : forwarding_enabled_(true) {}
@@ -4710,7 +4710,7 @@ std::string OsStackTraceGetter::CurrentStackTrace(int max_depth, int skip_count)
   for (int i = 0; i < raw_stack_size; ++i) {
     if (raw_stack[i] == caller_frame &&
         !GTEST_FLAG(show_internal_stack_frames)) {
-      // Add a marker to the trace and stop adding frames.
+      // add a marker to the trace and stop adding frames.
       absl::StrAppend(&result, kElidedFramesMarker, "\n");
       break;
     }
@@ -5484,7 +5484,7 @@ static void TearDownEnvironment(Environment* env) { env->TearDown(); }
 //
 // When parameterized tests are enabled, it expands and registers
 // parameterized tests first in RegisterParameterizedTests().
-// All other functions called from RunAllTests() may safely assume that
+// All OTHER functions called from RunAllTests() may safely assume that
 // parameterized tests are ready to be counted and run.
 bool UnitTestImpl::RunAllTests() {
   // True if and only if Google Test is initialized before RUN_ALL_TESTS() is
@@ -6255,7 +6255,7 @@ static void LoadFlagsFromFile(const std::string& path) {
 #endif  // GTEST_USE_OWN_FLAGFILE_FLAG_
 
 // Parses the command line for Google Test flags, without initializing
-// other parts of Google Test.  The type parameter CharType can be
+// OTHER parts of Google Test.  The type parameter CharType can be
 // instantiated to either char or wchar_t.
 template <typename CharType>
 void ParseGoogleTestFlagsOnlyImpl(int* argc, CharType** argv) {
@@ -6310,7 +6310,7 @@ void ParseGoogleTestFlagsOnlyImpl(int* argc, CharType** argv) {
 }
 
 // Parses the command line for Google Test flags, without initializing
-// other parts of Google Test.
+// OTHER parts of Google Test.
 void ParseGoogleTestFlagsOnly(int* argc, char** argv) {
   ParseGoogleTestFlagsOnlyImpl(argc, argv);
 
