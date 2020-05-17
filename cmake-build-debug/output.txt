@@ -1,0 +1,33 @@
+1. NAME: CLOWNFISH
+AGE: 31
+NAME LENGTH: 9
+ANIMAL: FISH
+Location: Other
+2. NAME: 11
+AGE: 1
+NAME LENGTH: 2
+ANIMAL: BIRD
+Is migratory: true
+Ignoring type: 0
+1. NAME: 11
+AGE: 1
+NAME LENGTH: 2
+ANIMAL: BIRD
+Is migratory: true
+Ignoring type: 1
+1. NAME: CLOWNFISH
+AGE: 31
+NAME LENGTH: 9
+ANIMAL: FISH
+Location: Other
+Sorted
+1. NAME: CLOWNFISH
+AGE: 31
+NAME LENGTH: 9
+ANIMAL: FISH
+Location: Other
+2. NAME: 11
+AGE: 1
+NAME LENGTH: 2
+ANIMAL: BIRD
+Is migratory: true

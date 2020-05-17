@@ -23,7 +23,7 @@ public:
     void OutA(std::ofstream& ofs);
     static bool Comparator(animal*f, animal*s);
     int nameLength();
-    virtual void Read(std::ifstream& ifs) = 0;
+    virtual bool Read(std::ifstream& ifs) = 0;
     virtual void Out(std::ofstream& ofs) = 0;
 };
 

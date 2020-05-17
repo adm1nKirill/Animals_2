@@ -14,7 +14,7 @@ class fish : public animal {
 public:
     location living_place; // Локация
     int age; // Возраст
-    void Read(std::ifstream& ifs);
+    bool Read(std::ifstream& ifs);
     void Out(std::ofstream& ofs);
 };
 

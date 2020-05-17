@@ -1,10 +1,13 @@
 
 #include "common_animal.h"
 
-void common_animal::Read(std::ifstream &ifs) {
+bool common_animal::Read(std::ifstream &ifs) {
     int int_location;
+    if(!ifs.eof()) return false;
     ifs >> int_location;
+    if(ifs.fail()) return false;
     food = (type)int_location;
+    return true;
 }
 
 void common_animal::Out(std::ofstream &stream) {

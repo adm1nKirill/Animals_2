@@ -1,10 +1,13 @@
 
 #include "fish.h"
 
-void fish::Read(std::ifstream &ifs) {
+bool fish::Read(std::ifstream &ifs) {
     int int_location;
+    if(!ifs.eof()) return false;
     ifs >> int_location;
+    if(!ifs.fail()) return false;
     living_place = (location)int_location;
+    return true;
 }
 
 void fish::Out(std::ofstream &ofs) {
