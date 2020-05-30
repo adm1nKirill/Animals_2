@@ -13,3 +13,19 @@ bool bird::read(std::ifstream &ifs) {
 void bird::out(std::ofstream &stream) {
     stream << "Is migratory: " << (is_migratory ? "true" : "false") << std::endl;
 }
+
+void bird::multiMethod(animal *other, std::ofstream &ofst) {
+    other->multiBird(ofst);
+}
+
+void bird::multiBird(std::ofstream &ofst) {
+    ofst << "Bird and bird" << std::endl;
+}
+
+void bird::multiFish(std::ofstream &ofst) {
+    ofst << "Bird and fish" << std::endl;
+}
+
+void bird::multiCommon(std::ofstream &ofst) {
+    ofst << "Bird and common_animal" << std::endl;
+}

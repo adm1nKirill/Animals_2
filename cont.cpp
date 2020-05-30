@@ -82,3 +82,16 @@ void cont::sort() {
         A = A->next;
     }
 }
+
+void cont::multi(std::ofstream &ofst) {
+    ofst << "_multimethod_" << std::endl;
+    node *A = first;
+    for(int i = 0; i < size-1; i++) {
+        node *B = first->next;
+        for(int j = 0; j < size-1-i; j++) {
+            A->data->multiMethod(B->data, ofst);
+            A->data->outA(ofst);
+            B->data->outA(ofst);
+        }
+    }
+}

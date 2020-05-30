@@ -27,6 +27,6 @@ public:
     void out(std::ofstream& ofs);
     void specificOut(std::ofstream& ofs, enumAnimal type);
     void sort();
-
+    void multi(std::ofstream &ofst);
 };
 #endif //CONT_H

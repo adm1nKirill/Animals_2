@@ -27,3 +27,19 @@ void commonAnimal::out(std::ofstream &stream) {
             return;
     }
 }
+
+void commonAnimal::multiMethod(animal *other, std::ofstream &ofst) {
+    other->multiCommon(ofst);
+}
+
+void commonAnimal::multiBird(std::ofstream &ofst) {
+    ofst << "Common_animal and bird" << std::endl;
+}
+
+void commonAnimal::multiFish(std::ofstream &ofst) {
+    ofst << "Common_animal and fish" << std::endl;
+}
+
+void commonAnimal::multiCommon(std::ofstream &ofst) {
+    ofst << "Common_animal and common_animal" << std::endl;
+}

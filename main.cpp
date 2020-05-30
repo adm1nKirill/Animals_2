@@ -19,11 +19,7 @@ int main(int argc, char* argv[]) {
     Zoo.read(ifst);
     // Вывод
     Zoo.out(ofst);
-    Zoo.specificOut(ofst, enumAnimal::FISH);
-    Zoo.specificOut(ofst, enumAnimal::BIRD);
-    Zoo.sort();
-    ofst << "Sorted\n";
-    Zoo.out(ofst);
+    Zoo.multi(ofst);
     // Очистка контейнера
     return 0;
 }

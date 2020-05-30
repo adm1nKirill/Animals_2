@@ -25,6 +25,10 @@ public:
     int nameLength();
     virtual bool read(std::ifstream& ifs) = 0;
     virtual void out(std::ofstream& ofs) = 0;
+    virtual void multiMethod(animal *other, std::ofstream &ofst) = 0;
+    virtual void multiBird(std::ofstream &ofst) = 0;
+    virtual void multiFish(std::ofstream &ofst) = 0;
+    virtual void multiCommon(std::ofstream &ofst) = 0;
 };
 
 
