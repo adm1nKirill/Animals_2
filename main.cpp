@@ -15,6 +15,7 @@ int main(int argc, char* argv[]) {
     ofstream ofst(argv[2]);
     // Вывод
     Zoo.Out(ofst);
+    Zoo.Multi(ofst);
     // Очистка контейнера
     return 0;
 }

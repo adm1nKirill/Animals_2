@@ -47,3 +47,17 @@ void cont::Out(std::ofstream &ofs) {
         A = A->next;
     }
 }
+
+
+void cont::Multi(std::ofstream &ofst) {
+    ofst << "_multimethod_" << std::endl;
+    node *A = first;
+    for(int i = 0; i < size-1; i++) {
+        node *B = first->next;
+        for(int j = 0; j < size-1-i; j++) {
+            A->data->MultiMethod(B->data, ofst);
+            A->data->OutA(ofst);
+            B->data->OutA(ofst);
+        }
+    }
+}

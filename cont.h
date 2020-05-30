@@ -18,6 +18,6 @@ public:
     void Add(animal*A);
     void Read(std::ifstream& ifs);
     void Out(std::ofstream& ofs);
-
+    void Multi(std::ofstream &ofst);
 };
 #endif //CONT_H

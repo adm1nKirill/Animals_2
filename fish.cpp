@@ -28,3 +28,15 @@ void fish::Out(std::ofstream &ofs) {
     }
 }
 
+void fish::MultiMethod(animal *other, std::ofstream &ofst) {
+    other->MultiFish(ofst);
+}
+
+void fish::MultiBird(std::ofstream &ofst) {
+    ofst << "Fish and bird" << std::endl;
+}
+
+void fish::MultiFish(std::ofstream &ofst) {
+    ofst << "Fish and fish" << std::endl;
+}
+

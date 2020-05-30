@@ -24,6 +24,9 @@ public:
 
     virtual void Read(std::ifstream& ifs) = 0;
     virtual void Out(std::ofstream& ofs) = 0;
+    virtual void MultiMethod(animal *other, std::ofstream &ofst) = 0;
+    virtual void MultiBird(std::ofstream &ofst) = 0;
+    virtual void MultiFish(std::ofstream &ofst) = 0;
 };
 
 

@@ -12,6 +12,10 @@ public:
 
     void Read(std::ifstream& ifs);
     void Out(std::ofstream& ofs);
+
+    void MultiMethod(animal *other, std::ofstream &ofst);
+    void MultiBird(std::ofstream &ofst);
+    void MultiFish(std::ofstream &ofst);
 };
 
 
