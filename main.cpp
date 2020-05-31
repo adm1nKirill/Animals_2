@@ -14,12 +14,12 @@ int main(int argc, char* argv[]) {
         cout << "File can't be opened." << endl;
     }
     // Контейнер с животными
-    cont Zoo{};
+    cont zoo{};
     // Считывание
-    Zoo.read(ifst);
+    zoo.read(ifst);
     // Вывод
-    Zoo.out(ofst);
-    Zoo.multi(ofst);
+    zoo.out(ofst);
+    zoo.multi(ofst);
     // Очистка контейнера
     return 0;
 }
