@@ -6,40 +6,40 @@
 
 
 animal *animal::readA(std::ifstream &ifs) {
-    int type, _age;
+    int type, age;
     ifs >> type;
     if(type < 0 || type > 2) {
         return NULL;
     }
-    animal* Read = NULL;
-    std::string _name;
+    animal* read = NULL;
+    std::string name;
     Read = NULL;
     switch (type) {
         case enumAnimal::FISH:
-            Read = (animal*)new fish;
+            read = (animal*)new fish;
             break;
         case enumAnimal::BIRD:
-            Read = (animal*)new bird;
+            read = (animal*)new bird;
             break;
         case enumAnimal::COMMON_ANIMAL:
-            Read = (animal*)new commonAnimal;
+            read = (animal*)new commonAnimal;
             break;
     }
     // Считываем возраст
     if(!ifs.eof())
-        ifs >> _age;
+        ifs >> age;
     else return NULL;
-    if(_age < 0) return false;
+    if(age < 0) return false;
     if(ifs.fail()) return false;
     // Считываем имя
     if(!ifs.eof())
-        ifs >> _name;
+        ifs >> name;
     else return NULL;
-    Read->age = _age;
-    Read->name = _name;
-    Read->read(ifs);
-    Read->TYPE = (enumAnimal)type;
-    return Read;
+    read->age = age;
+    read->name = name;
+    read->read(ifs);
+    read->TYPE = (enumAnimal)type;
+    return read;
 }
 
 void animal::outA(std::ofstream &ofs) {
