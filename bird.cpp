@@ -6,7 +6,8 @@ bool bird::read(std::ifstream &ifs) {
     if(!ifs.eof()) return false;
     ifs >> _s;
     if(_s == "true") is_migratory = 1;
-    else is_migratory = 0;
+    else if(_s == "false") is_migratory = 1;
+    else return false;
     return true;
 }
 
